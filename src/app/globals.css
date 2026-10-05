@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  /* Respect the visitor's motion preference. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    @apply bg-paper font-body text-ink antialiased;
+  }
+
+  /* Devanagari needs a touch more line height to stay readable at body size. */
+  :lang(mr) {
+    line-height: 1.75;
+  }
+
+  :lang(mr) h1,
+  :lang(mr) h2,
+  :lang(mr) h3 {
+    line-height: 1.35;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading text-ink;
+  }
+
+  /* A single, consistent focus style everywhere. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-field-700 ring-offset-2 ring-offset-paper;
+  }
+
+  /* Forms inherit the body font rather than the browser UI font. */
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+  }
+
+  /* Long Marathi words must not force horizontal scrolling on small screens. */
+  p,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  dd,
+  dt {
+    overflow-wrap: break-word;
+  }
+}
+
+@layer components {
+  /* Shared field styling for every control in both forms. */
+  .field-control {
+    @apply block w-full rounded border border-ink/20 bg-white px-3.5 py-2.5 text-base text-ink
+      placeholder:text-ink-muted/60
+      focus:border-field-600 focus:outline-none focus:ring-2 focus:ring-field-600/30
+      disabled:cursor-not-allowed disabled:bg-paper-dim;
+    min-height: 2.75rem;
+  }
+
+  .field-control[aria-invalid='true'] {
+    @apply border-red-600 focus:border-red-600 focus:ring-red-600/25;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-sm font-semibold text-ink-soft;
+  }
+
+  .field-hint {
+    @apply mt-1.5 text-xs text-ink-muted;
+  }
+
+  .field-error {
+    @apply mt-1.5 flex items-start gap-1.5 text-sm font-medium text-red-700;
+  }
+}
+
+@layer utilities {
+  /* Offset anchor targets so the sticky header does not cover them. */
+  .scroll-mt-header {
+    scroll-margin-top: 5.5rem;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
