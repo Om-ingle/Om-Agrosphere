@@ -9,6 +9,9 @@ next-env.d.ts
 # Production
 build/
 
+# Internal documents — kept locally, never published
+OM_AGROSPHERE_SRS_V1.md
+
 # Environment — never commit real secrets
 .env
 .env.local
