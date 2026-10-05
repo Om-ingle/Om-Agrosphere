@@ -9,22 +9,23 @@ const base =
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-field-700 text-white hover:bg-field-800 focus-visible:ring-field-700 focus-visible:ring-offset-paper',
+    'bg-field-700 text-white hover:bg-field-800 active:bg-field-900 focus-visible:ring-field-700 focus-visible:ring-offset-paper',
   accent:
-    'bg-grain-400 text-ink hover:bg-grain-300 focus-visible:ring-grain-500 focus-visible:ring-offset-paper',
+    'bg-grain-400 text-ink hover:bg-grain-300 active:bg-grain-500 focus-visible:ring-grain-500 focus-visible:ring-offset-paper',
   whatsapp:
-    'bg-[#128C7E] text-white hover:bg-[#0e7568] focus-visible:ring-[#128C7E] focus-visible:ring-offset-paper',
+    'bg-[#128C7E] text-white hover:bg-[#0e7568] active:bg-[#0b5f55] focus-visible:ring-[#128C7E] focus-visible:ring-offset-paper',
   outline:
-    'border border-field-700/35 bg-transparent text-field-800 hover:border-field-700 hover:bg-field-50 focus-visible:ring-field-700 focus-visible:ring-offset-paper',
+    'border border-field-700/35 bg-transparent text-field-800 hover:border-field-700 hover:bg-field-50 active:bg-field-100 focus-visible:ring-field-700 focus-visible:ring-offset-paper',
   ghost:
     'bg-transparent text-field-800 underline decoration-field-700/40 decoration-1 underline-offset-4 hover:decoration-field-700 focus-visible:ring-field-700 focus-visible:ring-offset-paper',
   onDark:
-    'border border-white/35 bg-white/5 text-white hover:border-white/70 hover:bg-white/10 focus-visible:ring-white focus-visible:ring-offset-field-900',
+    'border border-white/35 bg-white/5 text-white hover:border-white/70 hover:bg-white/10 active:bg-white/15 focus-visible:ring-white focus-visible:ring-offset-field-900',
 };
 
+/** Sizes carry a minimum height so every button clears a 44px touch target. */
 const sizes: Record<Size, string> = {
-  md: 'px-4 py-2.5 text-sm',
-  lg: 'px-5 py-3 text-base',
+  md: 'min-h-[2.75rem] px-4 py-2.5 text-sm',
+  lg: 'min-h-[3rem] px-5 py-3 text-base',
 };
 
 type CommonProps = {

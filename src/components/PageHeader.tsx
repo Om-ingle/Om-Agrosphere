@@ -18,17 +18,16 @@ type Props = {
  */
 export function PageHeader({ lang, eyebrow, title, intro, trail, children }: Props) {
   return (
-    <header className="border-b border-ink/10 bg-paper-dim">
+    <header className="relative border-b border-ink/10 bg-paper-dim">
+      {/* A single amber hairline marks the top of every inner page — the same
+          mark the homepage hero uses, so the brand reads consistently. */}
+      <span aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-grain-500/40" />
       <div className="mx-auto max-w-content px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
         <Breadcrumbs lang={lang} trail={trail} />
 
-        {eyebrow ? (
-          <p className="text-xs font-semibold tracking-[0.18em] text-grain-600 uppercase">
-            {pick(eyebrow, lang)}
-          </p>
-        ) : null}
+        {eyebrow ? <p className="eyebrow text-grain-600">{pick(eyebrow, lang)}</p> : null}
 
-        <h1 className="mt-3 max-w-4xl font-heading text-3xl leading-[1.15] text-balance text-ink sm:text-4xl lg:text-[2.75rem]">
+        <h1 className="mt-3 max-w-4xl font-heading text-[1.85rem] leading-[1.15] text-balance text-ink sm:text-4xl lg:text-[2.6rem]">
           {pick(title, lang)}
         </h1>
 

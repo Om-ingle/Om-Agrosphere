@@ -42,11 +42,19 @@
     line-height: 1.35;
   }
 
+  /*
+   * Headings set the typeface only — never a colour.
+   *
+   * Colouring every heading `text-ink` here was overriding the white headings
+   * inherited from dark panels, which is what made the hero (and the CTA band)
+   * render near-black text on deep green. Colour is now decided by the
+   * component that knows which surface it sits on.
+   */
   h1,
   h2,
   h3,
   h4 {
-    @apply font-heading text-ink;
+    @apply font-heading;
   }
 
   /* A single, consistent focus style everywhere. */
@@ -80,7 +88,8 @@
   .field-control {
     @apply block w-full rounded border border-ink/20 bg-white px-3.5 py-2.5 text-base text-ink
       placeholder:text-ink-muted/60
-      focus:border-field-600 focus:outline-none focus:ring-2 focus:ring-field-600/30
+      hover:border-ink/30
+      focus:border-field-600 focus:outline-none focus:ring-2 focus:ring-field-600/25
       disabled:cursor-not-allowed disabled:bg-paper-dim;
     min-height: 2.75rem;
   }
@@ -99,6 +108,22 @@
 
   .field-error {
     @apply mt-1.5 flex items-start gap-1.5 text-sm font-medium text-red-700;
+  }
+
+  /*
+   * The small uppercase label that opens a section or a block of copy.
+   * One definition, so every eyebrow on the site matches.
+   */
+  .eyebrow {
+    @apply text-xs font-semibold tracking-[0.18em] uppercase;
+  }
+
+  /*
+   * Editorial divider: a short amber rule that marks the start of a block
+   * without adding another card or panel to the page.
+   */
+  .rule-grain {
+    @apply block h-px w-14 bg-grain-500/60;
   }
 }
 

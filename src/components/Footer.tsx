@@ -29,7 +29,7 @@ export function Footer({ lang }: { lang: Lang }) {
   }));
 
   return (
-    <footer className="mt-20 border-t border-field-900/15 bg-field-900 bg-weave text-field-100">
+    <footer className="mt-20 border-t border-grain-500/35 bg-field-900 bg-weave text-field-100">
       <div className="mx-auto max-w-content px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-12">
           {/* Identity + description */}

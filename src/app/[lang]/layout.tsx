@@ -135,8 +135,12 @@ export default async function LangLayout({
         <Footer lang={typed} />
         <MobileActionBar lang={typed} />
 
-        {/* Clears the sticky mobile action bar so the footer is never covered. */}
-        <div aria-hidden="true" className="h-16 lg:hidden" />
+        {/* Clears the fixed mobile action bar — including the safe-area inset
+            on notched phones — so the footer is never covered. */}
+        <div
+          aria-hidden="true"
+          className="h-[calc(3.75rem+env(safe-area-inset-bottom))] lg:hidden"
+        />
 
         <Analytics />
       </body>

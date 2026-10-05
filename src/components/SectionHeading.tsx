@@ -34,12 +34,7 @@ export function SectionHeading({
   return (
     <div className={['flex flex-col gap-3', alignment].join(' ')}>
       {eyebrow ? (
-        <p
-          className={[
-            'text-xs font-semibold tracking-[0.18em] uppercase',
-            dark ? 'text-grain-300' : 'text-grain-600',
-          ].join(' ')}
-        >
+        <p className={['eyebrow', dark ? 'text-grain-300' : 'text-grain-600'].join(' ')}>
           {pick(eyebrow, lang)}
         </p>
       ) : null}
@@ -48,8 +43,8 @@ export function SectionHeading({
         className={[
           'font-heading text-balance',
           Tag === 'h1'
-            ? 'text-3xl leading-[1.15] sm:text-4xl lg:text-5xl'
-            : 'text-2xl leading-tight sm:text-3xl',
+            ? 'text-[1.9rem] leading-[1.15] sm:text-4xl lg:text-[2.75rem]'
+            : 'text-[1.6rem] leading-snug sm:text-[1.75rem]',
           dark ? 'text-white' : 'text-ink',
         ].join(' ')}
       >
@@ -60,8 +55,8 @@ export function SectionHeading({
       <span
         aria-hidden="true"
         className={[
-          'h-px w-16',
-          dark ? 'bg-grain-400/60' : 'bg-grain-500/50',
+          'rule-grain',
+          dark ? 'bg-grain-400/60' : '',
           align === 'center' ? 'mx-auto' : '',
         ].join(' ')}
       />

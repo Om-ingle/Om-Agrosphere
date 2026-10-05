@@ -22,10 +22,10 @@ export function CtaBand({ lang }: { lang: Lang }) {
       <div className="mx-auto max-w-content px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-6">
-            <p className="text-xs font-semibold tracking-[0.18em] text-grain-300 uppercase">
+            <p className="eyebrow text-grain-300">
               {pick({ en: 'Next step', mr: 'पुढील पायरी' }, lang)}
             </p>
-            <h2 className="mt-3 font-heading text-2xl leading-tight text-balance sm:text-3xl">
+            <h2 className="mt-3 font-heading text-2xl leading-tight text-balance text-white sm:text-[1.75rem]">
               {pick(
                 {
                   en: 'Tell us what you are bringing, and we will tell you what we can do.',

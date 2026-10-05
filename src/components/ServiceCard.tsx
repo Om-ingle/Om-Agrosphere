@@ -13,11 +13,11 @@ export function ServiceCard({ service, lang }: { service: Service; lang: Lang })
   const url = href(lang, `services/${service.slug}`);
 
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded border border-ink/10 bg-white shadow-card transition-shadow duration-200 hover:shadow-lift">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-sm border border-ink/10 bg-white shadow-card transition-[box-shadow,border-color] duration-200 hover:border-grain-500/40 hover:shadow-lift">
       <Photo
         photoKey={service.photoKey}
         lang={lang}
-        className="aspect-[4/3] w-full"
+        className="aspect-[4/3] w-full border-b border-ink/10"
         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
       />
 

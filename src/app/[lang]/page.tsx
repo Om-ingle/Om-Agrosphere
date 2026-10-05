@@ -95,23 +95,46 @@ export default async function HomePage({ params }: PageProps) {
       />
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-field-900 bg-weave text-white">
-        <div className="mx-auto max-w-content px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
+      <section className="relative isolate overflow-hidden bg-field-900 text-white">
+        {/*
+          One warm glow, no repeating pattern. The geometric weave that used to
+          sit behind this copy competed with the headline; the photograph (or
+          its plate) is now the only texture on the page.
+        */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(115%_80%_at_82%_12%,rgba(224,169,59,0.18),transparent_58%)]"
+        />
+
+        <div className="relative mx-auto max-w-content px-4 pt-14 sm:px-6 sm:pt-16 lg:px-8 lg:pt-20">
+          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
+            {/* ── Copy ── */}
             <div className="lg:col-span-6">
-              <p className="text-xs font-semibold tracking-[0.2em] text-grain-300 uppercase">
-                {pick({ en: 'Dhule–Solapur Highway, Gangapur, Maharashtra', mr: 'धुळे–सोलापूर महामार्ग, गंगापूर, महाराष्ट्र' }, lang)}
+              <p className="eyebrow flex items-center gap-3 text-grain-300">
+                <span aria-hidden="true" className="h-px w-8 bg-grain-400/70" />
+                {pick(
+                  {
+                    en: 'Dhule–Solapur Highway · Gangapur, Maharashtra',
+                    mr: 'धुळे–सोलापूर महामार्ग · गंगापूर, महाराष्ट्र',
+                  },
+                  lang,
+                )}
               </p>
 
-              <h1 className="mt-4 font-heading text-4xl leading-[1.1] text-balance sm:text-5xl lg:text-[3.4rem]">
+              <h1 className="mt-5 font-heading text-[2.1rem] leading-[1.08] text-balance text-white sm:text-[2.7rem] lg:text-[3.1rem]">
                 {pick(site.tagline, lang)}
               </h1>
 
-              <p className="mt-4 font-heading text-lg text-grain-200 sm:text-xl">
+              {/* The tagline in the other language — often how the business is
+                  described out loud, so it belongs next to the headline. */}
+              <p
+                lang={lang === 'en' ? 'mr' : 'en'}
+                className="mt-3 font-heading text-lg text-grain-200 sm:text-xl"
+              >
                 {lang === 'en' ? site.tagline.mr : site.tagline.en}
               </p>
 
-              <p className="mt-6 max-w-prose text-base leading-relaxed text-field-100/85 sm:text-lg">
+              <p className="mt-6 max-w-prose text-base leading-relaxed text-field-100/85 sm:text-[1.0625rem]">
                 {pick(
                   {
                     en: 'We clean, sort, grade and mill grain for farmers, traders and buyers — and supply corn grit for animal feed and spice powders from our own unit.',
@@ -121,8 +144,13 @@ export default async function HomePage({ params }: PageProps) {
                 )}
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <ButtonInternal href={href(lang, 'quote')} variant="accent" size="lg">
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <ButtonInternal
+                  href={href(lang, 'quote')}
+                  variant="accent"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                >
                   <QuoteIcon className="h-5 w-5" />
                   {pick(ui.getQuote, lang)}
                 </ButtonInternal>
@@ -134,65 +162,86 @@ export default async function HomePage({ params }: PageProps) {
                     params={{ source: 'hero' }}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded bg-[#128C7E] px-5 py-3 text-base font-semibold text-white transition-colors hover:bg-[#0e7568] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-field-900"
+                    className="inline-flex min-h-[3rem] w-full items-center justify-center gap-2 rounded bg-[#128C7E] px-5 py-3 text-base font-semibold text-white transition-colors hover:bg-[#0e7568] active:bg-[#0b5f55] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-field-900 sm:w-auto"
                   >
                     <WhatsAppIcon className="h-5 w-5" />
                     {pick(ui.whatsapp, lang)}
                   </TrackedLink>
                 ) : null}
-
-                <ButtonInternal href={href(lang, 'services')} variant="onDark" size="lg">
-                  {pick(ui.viewServices, lang)}
-                  <ArrowRightIcon className="h-4 w-4" />
-                </ButtonInternal>
               </div>
-
-              {/* Location + email are known facts, so they belong in the hero. */}
-              <dl className="mt-10 grid gap-x-8 gap-y-5 border-t border-white/15 pt-7 sm:grid-cols-2">
-                <div className="flex gap-3">
-                  <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-grain-400" />
-                  <div>
-                    <dt className="text-xs font-semibold tracking-wide text-field-100/60 uppercase">
-                      {pick(ui.locationLabel, lang)}
-                    </dt>
-                    <dd className="mt-1 text-sm text-field-100/90">
-                      {pick(site.location.landmark, lang)}
-                      <br />
-                      {localityLine(lang)}
-                    </dd>
-                  </div>
-                </div>
-
-                <div className="flex gap-3">
-                  <MailIcon className="mt-0.5 h-5 w-5 shrink-0 text-grain-400" />
-                  <div>
-                    <dt className="text-xs font-semibold tracking-wide text-field-100/60 uppercase">
-                      {pick(ui.emailLabel, lang)}
-                    </dt>
-                    <dd className="mt-1 text-sm">
-                      <a
-                        href={mailtoHref(`Enquiry — ${site.name}`)}
-                        className="break-all text-field-100/90 underline decoration-grain-400/50 underline-offset-4 transition-colors hover:text-white hover:decoration-grain-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-field-900"
-                      >
-                        {site.email}
-                      </a>
-                    </dd>
-                  </div>
-                </div>
-              </dl>
             </div>
 
+            {/* ── Photograph ── */}
             <div className="lg:col-span-6">
-              <Photo
-                photoKey="hero-facility"
-                lang={lang}
-                priority
-                tone="dark"
-                className="aspect-[4/3] w-full rounded border border-white/15 lg:aspect-[4/5]"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-              />
+              <div className="relative">
+                {/* Offset frame — a matted, considered presentation rather than
+                    a full-bleed image pasted onto the green. */}
+                <span
+                  aria-hidden="true"
+                  className="absolute -inset-2.5 rounded-sm border border-grain-400/25 sm:-inset-3.5"
+                />
+                <Photo
+                  photoKey="hero-facility"
+                  lang={lang}
+                  priority
+                  tone="dark"
+                  className="relative aspect-[4/3] w-full rounded-sm border border-white/10 sm:aspect-[16/10] lg:aspect-[4/5]"
+                  sizes="(min-width: 1024px) 46vw, 100vw"
+                />
+              </div>
             </div>
           </div>
+        </div>
+
+        {/* ── Facts strip ──
+            Only facts the business has supplied: where the unit is, and the
+            two ways to reach it. No invented figures. */}
+        <div className="relative mt-12 border-t border-white/10 lg:mt-14">
+          <dl className="mx-auto grid max-w-content divide-y divide-white/10 px-4 sm:px-6 md:grid-cols-3 md:divide-x md:divide-y-0 lg:px-8">
+            <div className="flex gap-3 py-5 md:px-6 md:py-6 md:first:pl-0">
+              <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-grain-400" />
+              <div>
+                <dt className="eyebrow text-field-100/50">{pick(ui.locationLabel, lang)}</dt>
+                <dd className="mt-1.5 text-sm leading-relaxed text-field-100/90">
+                  {pick(site.location.landmark, lang)}
+                  <br />
+                  {localityLine(lang)}
+                </dd>
+              </div>
+            </div>
+
+            {tel ? (
+              <div className="flex gap-3 py-5 md:px-6 md:py-6">
+                <PhoneIcon className="mt-0.5 h-5 w-5 shrink-0 text-grain-400" />
+                <div>
+                  <dt className="eyebrow text-field-100/50">{pick(ui.phone, lang)}</dt>
+                  <dd className="mt-1.5 text-sm">
+                    <a
+                      href={tel}
+                      className="inline-flex min-h-[1.75rem] items-center font-semibold text-field-100 transition-colors hover:text-white hover:underline hover:decoration-grain-400 hover:underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-field-900"
+                    >
+                      {site.phoneDisplay}
+                    </a>
+                  </dd>
+                </div>
+              </div>
+            ) : null}
+
+            <div className="flex gap-3 py-5 md:px-6 md:py-6 md:last:pr-0">
+              <MailIcon className="mt-0.5 h-5 w-5 shrink-0 text-grain-400" />
+              <div>
+                <dt className="eyebrow text-field-100/50">{pick(ui.emailLabel, lang)}</dt>
+                <dd className="mt-1.5 text-sm">
+                  <a
+                    href={mailtoHref(`Enquiry — ${site.name}`)}
+                    className="break-all text-field-100/90 underline decoration-grain-400/50 underline-offset-4 transition-colors hover:text-white hover:decoration-grain-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-field-900"
+                  >
+                    {site.email}
+                  </a>
+                </dd>
+              </div>
+            </div>
+          </dl>
         </div>
       </section>
 
@@ -336,19 +385,26 @@ export default async function HomePage({ params }: PageProps) {
           lang={lang}
         />
 
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* A hairline grid, not six floating cards — the copy is the point. */}
+        <ul className="mt-10 grid gap-x-12 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
           {trustPoints.map((point, index) => {
             const Icon = trustIcons[index % trustIcons.length]!;
             return (
               <li
                 key={point.title.en}
-                className="flex flex-col gap-3 rounded border border-ink/10 bg-white p-5 shadow-card"
+                className="flex gap-4 border-t border-ink/10 pt-6"
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded bg-field-50 text-field-700">
+                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-field-800 text-grain-300">
                   <Icon className="h-5 w-5" />
                 </span>
-                <h3 className="font-heading text-base text-ink">{pick(point.title, lang)}</h3>
-                <p className="text-sm leading-relaxed text-ink-soft">{pick(point.body, lang)}</p>
+                <div>
+                  <h3 className="font-heading text-base text-ink">
+                    {pick(point.title, lang)}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+                    {pick(point.body, lang)}
+                  </p>
+                </div>
               </li>
             );
           })}
@@ -454,7 +510,9 @@ export default async function HomePage({ params }: PageProps) {
           lang={lang}
         />
 
-        <div className="mt-8 rounded border border-dashed border-ink/25 bg-white/70 p-6 sm:p-8">
+        {/* An editorial note with a left rule, rather than an empty dashed box
+            pretending to be a testimonial carousel. */}
+        <div className="mt-8 border-l-2 border-grain-500/60 pl-6 sm:pl-8">
           <p className="max-w-prose text-base leading-relaxed text-ink-soft">
             {pick(
               {

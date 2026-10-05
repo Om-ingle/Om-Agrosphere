@@ -37,44 +37,81 @@ export function Photo({
 
   if (!slot.src) {
     const pending = tone === 'dark';
+    const subject = pick(slot.subject, lang);
+    const label = pick(ui.photoPendingTitle, lang);
+
     return (
       <div
         className={[
-          'relative flex flex-col items-center justify-center gap-2 overflow-hidden text-center',
-          pending
-            ? 'bg-field-800/60 text-field-100/80'
-            : 'bg-paper-deep bg-chaff text-ink-muted',
+          'relative flex flex-col items-center justify-center overflow-hidden text-center',
+          pending ? 'bg-field-800 text-field-100' : 'bg-paper-dim bg-chaff text-ink-soft',
           className,
         ].join(' ')}
         role="img"
-        aria-label={`${pick(ui.photoPendingTitle, lang)}: ${pick(slot.subject, lang)}`}
+        aria-label={`${label}: ${subject}`}
       >
-        <svg
+        {/* Inset hairline: reads as a reserved plate rather than a broken image. */}
+        <span
           aria-hidden="true"
-          viewBox="0 0 24 24"
-          className={['h-7 w-7', pending ? 'text-field-200/70' : 'text-soil-300'].join(' ')}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          className={[
+            'pointer-events-none absolute inset-2 rounded-sm border border-dashed',
+            pending ? 'border-white/15' : 'border-soil-300/60',
+          ].join(' ')}
+        />
+
+        {/* Dark plates get a single warm glow so they do not read as flat green. */}
+        {pending ? (
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_0%,rgba(224,169,59,0.16),transparent_62%)]"
+          />
+        ) : null}
+
+        <span
+          className={[
+            'relative flex h-10 w-10 items-center justify-center rounded-full',
+            pending ? 'bg-white/5 text-grain-300' : 'bg-white text-soil-500 shadow-card',
+          ].join(' ')}
         >
-          <rect x="3" y="4.5" width="18" height="15" rx="2" />
-          <circle cx="8.5" cy="10" r="1.6" />
-          <path d="M3.5 17.5 9 12.5l4 3.5 3-2.5 4.5 4" />
-        </svg>
-        <p className="px-4 text-xs font-semibold tracking-wide uppercase">
-          {pick(ui.photoPendingTitle, lang)}
-        </p>
-        <p className="max-w-[22ch] px-4 text-[0.7rem] leading-snug opacity-80">
-          {pick(slot.subject, lang)}
-        </p>
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            className="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <rect x="3" y="4.5" width="18" height="15" rx="2" />
+            <circle cx="8.5" cy="10" r="1.6" />
+            <path d="M3.5 17.5 9 12.5l4 3.5 3-2.5 4.5 4" />
+          </svg>
+        </span>
+
+        <span
+          className={[
+            'relative mt-3 max-w-[26ch] px-5 font-heading text-xs leading-snug sm:text-sm',
+            pending ? 'text-field-100/90' : 'text-ink-soft',
+          ].join(' ')}
+        >
+          {subject}
+        </span>
+
+        <span
+          className={[
+            'relative mt-2 px-5 text-[0.6rem] font-semibold tracking-[0.16em] uppercase',
+            pending ? 'text-field-100/45' : 'text-ink-muted/75',
+          ].join(' ')}
+        >
+          {label}
+        </span>
       </div>
     );
   }
 
   return (
-    <div className={['relative overflow-hidden', className].join(' ')}>
+    <div className={['relative overflow-hidden bg-paper-deep', className].join(' ')}>
       <Image
         src={slot.src}
         alt={pick(slot.alt, lang)}
