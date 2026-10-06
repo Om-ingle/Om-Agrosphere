@@ -1,47 +1,55 @@
 import type { L } from '@/lib/i18n';
 
 /**
- * Photograph registry.
+ * Media registry — photographs and video.
  *
- * Every image on the site is declared here as a *slot*. A slot describes the
- * photograph the business needs to supply, in both languages, before it can be
- * published. While `src` is `null` the <Photo> component renders a clearly
- * labelled "photograph to be added" panel — it never substitutes stock imagery
- * or an invented picture of the facility.
+ * Every image and clip on the site is declared here. A slot is either:
  *
- * ── To publish a real photograph ────────────────────────────────────────────
- *   1. Save the optimised file in `public/images/` (long edge ≈ 2000px,
- *      compressed; Next.js converts it to AVIF/WebP automatically).
- *   2. Set `src` below to `/images/<file-name>.jpg`.
- *   3. Check the `alt` text still describes what the photograph shows.
+ *   • a REAL asset — `src` points at a file in `public/`, and `alt` describes
+ *     what is actually visible in it. Slots holding real media are named after
+ *     their file, so the registry maps one-to-one onto `public/images/`.
+ *
+ *   • a PENDING slot — `src` is `null`, and the <Photo> component renders a
+ *     clearly labelled "photograph to be added" panel. Pending slots are named
+ *     after the *need* (hero-facility, service-cleaning, …) rather than a file,
+ *     because no file exists yet.
+ *
+ * A pending slot is never filled with stock imagery or with a photograph of
+ * somebody else's plant. Only the business can close a pending slot, by
+ * supplying the picture. See `MEDIA.md` for the outstanding list.
+ *
+ * ── To publish a photograph ─────────────────────────────────────────────────
+ *   1. Save the optimised file in `public/images/` (long edge ≈ 2000px).
+ *   2. Set `src` below to `/images/<file-name>.jpeg`.
+ *   3. Rewrite `alt` to describe what the photograph actually shows.
  * No other file needs to change.
  */
 export type PhotoSlot = {
-  /** Public path once supplied, e.g. `/images/facility-exterior.jpg`. */
+  /** Public path once supplied, e.g. `/images/facility-exterior.jpeg`. */
   src: string | null;
-  /** What the photograph should show — shown in the pending-photo panel. */
+  /** What the photograph shows — rendered in the pending-photo panel. */
   subject: L;
   /** Alt text for screen readers and image search. Describe, don't keyword-stuff. */
   alt: L;
+  /**
+   * Crop anchor. Several of these photographs are tall phone portraits; a
+   * centre crop of an entrance shot loses the signboard at the top. Defaults
+   * to a centre crop.
+   */
+  focus?: 'top' | 'center' | 'bottom';
 };
 
 export type PhotoKey = keyof typeof photos;
 
 export const photos = {
+  /* ── Pending: the business still has to supply these ───────────────────── */
+
   'hero-facility': {
     src: null,
     subject: { en: 'Processing unit, wide view', mr: 'प्रक्रिया युनिटचे विस्तृत दृश्य' },
     alt: {
       en: 'The Om Agrosphere grain processing unit on the Dhule–Solapur Highway',
       mr: 'धुळे–सोलापूर महामार्गावरील ओम अ‍ॅग्रोस्फिअर धान्य प्रक्रिया युनिट',
-    },
-  },
-  'intro-grain': {
-    src: null,
-    subject: { en: 'Cleaned grain in hand', mr: 'हातातील स्वच्छ केलेले धान्य' },
-    alt: {
-      en: 'Cleaned grain held in a pair of hands at the processing unit',
-      mr: 'प्रक्रिया युनिटमध्ये हातात धरलेले स्वच्छ केलेले धान्य',
     },
   },
   'service-cleaning': {
@@ -100,68 +108,252 @@ export const photos = {
       mr: 'ओम अ‍ॅग्रोस्फिअरकडून पुरवली जाणारी मसाला पूड',
     },
   },
+
+  /* ── The unit ──────────────────────────────────────────────────────────── */
+
   'facility-exterior': {
-    src: null,
-    subject: { en: 'Unit entrance from the highway', mr: 'महामार्गावरून युनिटचे प्रवेशद्वार' },
+    src: '/images/facility-exterior.jpeg',
+    // The signboard sits at the top of a tall frame — anchor the crop there.
+    focus: 'top',
+    subject: { en: 'Unit entrance under the signboard', mr: 'साइनबोर्डाखालील युनिटचे प्रवेशद्वार' },
     alt: {
-      en: 'Entrance to the Om Agrosphere processing unit seen from the highway',
-      mr: 'महामार्गावरून दिसणारे ओम अ‍ॅग्रोस्फिअर प्रक्रिया युनिटचे प्रवेशद्वार',
+      en: 'The entrance to the Om Agrosphere unit, with the signboard above and staff standing below it holding grain',
+      mr: 'ओम अ‍ॅग्रोस्फिअर युनिटचे प्रवेशद्वार, वर साइनबोर्ड व खाली धान्य हातात धरून उभे असलेले कर्मचारी',
     },
   },
-  'facility-interior': {
-    src: null,
-    subject: { en: 'Inside the processing shed', mr: 'प्रक्रिया शेडचे अंतर्गत दृश्य' },
+  'team-at-entrance': {
+    src: '/images/team-at-entrance.jpeg',
+    focus: 'top',
+    subject: { en: 'Team at the unit entrance', mr: 'युनिटच्या प्रवेशद्वारावर मंडळी' },
     alt: {
-      en: 'Inside the processing shed, with machinery and grain in process',
-      mr: 'यंत्रसामग्री व प्रक्रियेतील धान्यासह प्रक्रिया शेडचे अंतर्गत दृश्य',
+      en: 'Two members of the team standing beneath the Om Agrosphere signboard at the unit entrance, holding grain',
+      mr: 'युनिटच्या प्रवेशद्वारावर ओम अ‍ॅग्रोस्फिअर साइनबोर्डाखाली धान्य हातात धरून उभे असलेले दोन कर्मचारी',
     },
   },
-  'machinery-overview': {
-    src: null,
-    subject: { en: 'Machinery line', mr: 'यंत्रसामग्रीची रांग' },
+
+  /* ── Machinery ─────────────────────────────────────────────────────────── */
+
+  'machinery-processing-unit': {
+    src: '/images/machinery-processing-unit.jpeg',
+    subject: { en: 'The processing machine', mr: 'प्रक्रिया यंत्र' },
     alt: {
-      en: 'The line of cleaning, sorting and grading machinery at the unit',
-      mr: 'युनिटमधील स्वच्छता, प्रतवारी व ग्रेडिंग यंत्रांची रांग',
+      en: 'The green and yellow processing machine, with bucket elevators, hoppers and ribbed hoses discharging into sacks',
+      mr: 'हिरवे-पिवळे प्रक्रिया यंत्र — बादली लिफ्ट, हॉपर व पोत्यांमध्ये सोडणारे नालीदार नळ',
+    },
+  },
+  'machinery-grain-processing': {
+    src: '/images/machinery-grain-processing.jpeg',
+    subject: { en: 'Machine side view', mr: 'यंत्राचे बाजूचे दृश्य' },
+    alt: {
+      en: 'Side view of the grain processing machine, showing its hoppers, elevators and drive units',
+      mr: 'धान्य प्रक्रिया यंत्राचे बाजूचे दृश्य — हॉपर, लिफ्ट व चालक यंत्रणा',
     },
   },
   'machinery-detail': {
-    src: null,
-    subject: { en: 'Machine detail / control panel', mr: 'यंत्राचा भाग / नियंत्रण पॅनेल' },
+    src: '/images/machinery-detail.jpeg',
+    subject: { en: 'Separator and blower unit', mr: 'विभाजक व ब्लोअर युनिट' },
     alt: {
-      en: 'Close view of processing machinery at the Om Agrosphere unit',
-      mr: 'ओम अ‍ॅग्रोस्फिअर युनिटमधील प्रक्रिया यंत्राचे जवळून दृश्य',
+      en: 'The orange cyclone separator and blower unit of the processing line, with a collection sack tied beneath it',
+      mr: 'प्रक्रिया रांगेतील नारिंगी सायक्लोन विभाजक व ब्लोअर युनिट, खाली बांधलेले गोळा करणारे पोते',
     },
   },
-  'operations-loading': {
-    src: null,
-    subject: { en: 'Loading or unloading a vehicle', mr: 'वाहनात माल भरताना किंवा उतरवताना' },
-    alt: {
-      en: 'Grain sacks being loaded onto a vehicle at the unit',
-      mr: 'युनिटमध्ये वाहनात धान्याची पोती भरताना',
-    },
-  },
-  'operations-packaging': {
-    src: null,
-    subject: { en: 'Packing processed material', mr: 'प्रक्रिया केलेले उत्पादन पॅक करताना' },
-    alt: {
-      en: 'Processed grain being weighed and packed into sacks',
-      mr: 'प्रक्रिया केलेले धान्य वजन करून पोत्यांमध्ये भरताना',
-    },
-  },
+
+  /* ── The people ────────────────────────────────────────────────────────── */
+
   'operations-team': {
-    src: null,
+    src: '/images/operations-team.jpeg',
     subject: { en: 'The people who run the unit', mr: 'युनिट चालवणारी मंडळी' },
     alt: {
-      en: 'Workers at the Om Agrosphere processing unit',
-      mr: 'ओम अ‍ॅग्रोस्फिअर प्रक्रिया युनिटमधील कामगार',
+      en: 'Three members of the unit team standing at the processing machine, holding grain',
+      mr: 'प्रक्रिया यंत्राजवळ धान्य हातात धरून उभे असलेले युनिटचे तीन कर्मचारी',
     },
   },
-  'farmer-delivery': {
-    src: null,
-    subject: { en: 'A farmer bringing produce in', mr: 'शेतकरी माल घेऊन येताना' },
+  'team-at-facility': {
+    src: '/images/team-at-facility.jpeg',
+    subject: { en: 'Team at the machine', mr: 'यंत्राजवळ मंडळी' },
     alt: {
-      en: 'A farmer delivering harvested grain to the processing unit',
-      mr: 'प्रक्रिया युनिटमध्ये कापणी केलेले धान्य आणणारा शेतकरी',
+      en: 'The unit team standing beside the processing machine and weighing scale inside the shed',
+      mr: 'शेडमध्ये प्रक्रिया यंत्र व काट्याजवळ उभे असलेले युनिटचे कर्मचारी',
+    },
+  },
+
+  /* ── Processed material ────────────────────────────────────────────────── */
+
+  'cleaned-grain-in-hand': {
+    src: '/images/cleaned-grain-in-hand.jpeg',
+    subject: { en: 'Cleaned grain in hand', mr: 'हातातील स्वच्छ केलेले धान्य' },
+    alt: {
+      en: 'A handful of cleaned grain held up to the camera at the unit',
+      mr: 'युनिटमध्ये कॅमेऱ्यासमोर हातात धरलेले स्वच्छ केलेले धान्य',
+    },
+  },
+  'grain-quality-closeup': {
+    src: '/images/grain-quality-closeup.jpeg',
+    subject: { en: 'Split pulses in an open sack', mr: 'उघड्या पोत्यातील फुटलेली डाळ' },
+    alt: {
+      en: 'Split pulses held in an open white sack, shown close up to display the grade',
+      mr: 'प्रतीचे दर्शन घडवण्यासाठी उघड्या पांढऱ्या पोत्यात धरलेली फुटलेली डाळ, जवळून',
+    },
+  },
+  'processed-grain-varieties': {
+    src: '/images/processed-grain-varieties.jpeg',
+    subject: { en: 'Different grains, side by side', mr: 'वेगवेगळे धान्य, शेजारी शेजारी' },
+    alt: {
+      en: 'Seven open sacks in a row, each holding a different grain or pulse processed at the unit',
+      mr: 'रांगेत ठेवलेली सात उघडी पोती, प्रत्येकात युनिटमध्ये प्रक्रिया केलेले वेगळे धान्य किंवा डाळ',
+    },
+  },
+  'processed-grain-bags': {
+    src: '/images/processed-grain-bags.jpeg',
+    subject: { en: 'Filled and tied sacks', mr: 'भरलेली व बांधलेली पोती' },
+    alt: {
+      en: 'Processed grain filled into woven sacks, tied and stacked ready for dispatch',
+      mr: 'प्रक्रिया केलेले धान्य भरून बांधलेली व पाठवणीसाठी रचलेली पोती',
+    },
+  },
+  'packaged-grain-bags': {
+    src: '/images/packaged-grain-bags.jpeg',
+    subject: { en: 'Packed for supply', mr: 'पुरवठ्यासाठी पॅक केलेले' },
+    alt: {
+      en: 'Two clear bags of processed grain packed and ready to be supplied',
+      mr: 'पुरवठ्यासाठी पॅक केलेल्या प्रक्रिया केलेल्या धान्याच्या दोन पारदर्शक पिशव्या',
+    },
+  },
+  'bulk-processed-grain': {
+    src: '/images/bulk-processed-grain.jpeg',
+    subject: { en: 'Bulk processed grain', mr: 'मोठ्या प्रमाणातील प्रक्रिया धान्य' },
+    alt: {
+      en: 'A bulk heap of processed split pulses at the unit',
+      mr: 'युनिटमध्ये मोठ्या प्रमाणात असलेली प्रक्रिया केलेली फुटलेली डाळ',
+    },
+  },
+  'processed-grain-closeup': {
+    src: '/images/processed-grain-closeup.jpeg',
+    subject: { en: 'Processed grain, close up', mr: 'प्रक्रिया धान्य, जवळून' },
+    alt: {
+      en: 'Close view of processed grain and split pulses at the unit',
+      mr: 'युनिटमधील प्रक्रिया केलेले धान्य व फुटलेली डाळ, जवळून',
+    },
+  },
+  'processed-pulse-mix': {
+    src: '/images/processed-pulse-mix.jpeg',
+    subject: { en: 'Mixed pulses, close up', mr: 'मिसळलेली डाळ, जवळून' },
+    alt: {
+      en: 'A mix of differently coloured split pulses, shown close up',
+      mr: 'वेगवेगळ्या रंगांची मिसळलेली फुटलेली डाळ, जवळून',
+    },
+  },
+  'pulse-grain-dark': {
+    src: '/images/pulse-grain-dark.jpeg',
+    subject: { en: 'Dark split pulses', mr: 'गडद रंगाची फुटलेली डाळ' },
+    alt: {
+      en: 'Dark-coloured split pulses, shown close up',
+      mr: 'गडद रंगाची फुटलेली डाळ, जवळून',
+    },
+  },
+  'processed-grain-light': {
+    src: '/images/processed-grain-light.jpeg',
+    subject: { en: 'Light split pulses', mr: 'फिकट रंगाची फुटलेली डाळ' },
+    alt: {
+      en: 'Light-coloured split pulses, shown close up',
+      mr: 'फिकट रंगाची फुटलेली डाळ, जवळून',
+    },
+  },
+  'grain-closeup-detail': {
+    src: '/images/grain-closeup-detail.jpeg',
+    subject: { en: 'Grain detail', mr: 'धान्याचा तपशील' },
+    alt: {
+      en: 'Detail view of processed grain and pulses at the unit',
+      mr: 'युनिटमधील प्रक्रिया केलेले धान्य व डाळ यांचा तपशील',
+    },
+  },
+
+  /* ── The business's own signage ────────────────────────────────────────── */
+
+  'business-signboard-om-agrosphere': {
+    src: '/images/business-signboard-om-agrosphere.jpeg',
+    subject: { en: 'Unit signboard', mr: 'युनिटचा साइनबोर्ड' },
+    alt: {
+      en: 'The Om Agrosphere signboard, showing the business name, its Marathi tagline and the contact numbers',
+      mr: 'ओम अ‍ॅग्रोस्फिअर साइनबोर्ड — व्यवसायाचे नाव, मराठी घोषवाक्य व संपर्क क्रमांक',
+    },
+  },
+  'business-banner-wheat-filter-machine': {
+    src: '/images/business-banner-wheat-filter-machine.jpeg',
+    subject: { en: 'Wheat filter machine banner', mr: 'गहू फिल्टर मशीन फलक' },
+    alt: {
+      en: "Om Agrosphere's banner advertising its wheat filter machine, naming the grains it cleans and the contact number",
+      mr: 'ओम अ‍ॅग्रोस्फिअरचा गहू फिल्टर मशीनचा फलक — स्वच्छ केल्या जाणाऱ्या धान्यांची नावे व संपर्क क्रमांक',
+    },
+  },
+
+  /* ── Video poster frames ──────────────────────────────────────────────────
+   * Real frames lifted from the business's own clips, used as the still shown
+   * before playback. They are not part of any gallery group.
+   * ---------------------------------------------------------------------- */
+
+  'poster-farm-harvesting': {
+    src: '/images/poster-farm-harvesting.jpeg',
+    subject: { en: 'Ripe crop before harvest', mr: 'कापणीपूर्वीचे पिकलेले पीक' },
+    alt: {
+      en: 'A field of ripe grain standing ready for harvest under a clear sky',
+      mr: 'निरभ्र आकाशाखाली कापणीसाठी तयार उभे असलेले पिकलेले धान्याचे शेत',
+    },
+  },
+  'poster-grain-unloading': {
+    src: '/images/poster-grain-unloading.jpeg',
+    subject: { en: 'Combine harvester at work', mr: 'कापणी यंत्र काम करताना' },
+    alt: {
+      en: 'A green combine harvester cutting through a ripe crop, with chaff blowing out behind it',
+      mr: 'पिकलेल्या पिकातून जाणारे हिरवे कापणी यंत्र, मागे भुसा उडत असताना',
+    },
+  },
+  'poster-grain-processing-machine': {
+    src: '/images/poster-grain-processing-machine.jpeg',
+    subject: { en: 'Worker at the machine', mr: 'यंत्राजवळ कामगार' },
+    alt: {
+      en: 'Inside the processing shed, with a worker in a white shirt at the green and yellow machinery',
+      mr: 'प्रक्रिया शेडमध्ये, हिरव्या-पिवळ्या यंत्राजवळ पांढऱ्या शर्टातील कामगार',
+    },
+  },
+  'poster-grain-processing-output': {
+    src: '/images/poster-grain-processing-output.jpeg',
+    subject: { en: 'Filling a sack at the outlet', mr: 'आउटलेटवर पोते भरताना' },
+    alt: {
+      en: "A worker crouching to fill a yellow sack from the machine's outlet",
+      mr: 'यंत्राच्या आउटलेटवरून पिवळे पोते भरण्यासाठी खाली बसलेला कामगार',
+    },
+  },
+  'poster-machine-operation': {
+    src: '/images/poster-machine-operation.jpeg',
+    subject: { en: 'The complete machine', mr: 'संपूर्ण यंत्र' },
+    alt: {
+      en: 'The complete processing machine inside the shed — two bucket elevators, hoppers, the main body and drive motors',
+      mr: 'शेडमधील संपूर्ण प्रक्रिया यंत्र — दोन बादली लिफ्ट, हॉपर, मुख्य भाग व चालक मोटारी',
+    },
+  },
+  'poster-grain-processing-closeup': {
+    src: '/images/poster-grain-processing-closeup.jpeg',
+    subject: { en: 'Grain leaving the machine', mr: 'यंत्रातून धान्य बाहेर पडताना' },
+    alt: {
+      en: 'Processed grain pouring from the machine outlet into a sack held open by a worker',
+      mr: 'यंत्राच्या आउटलेटवरून, कामगाराने उघडे धरलेल्या पोत्यात प्रक्रिया केलेले धान्य पडताना',
+    },
+  },
+  'poster-facility-operations': {
+    src: '/images/poster-facility-operations.jpeg',
+    subject: { en: 'Machine and ducting outside', mr: 'बाहेरील यंत्र व नळ' },
+    alt: {
+      en: 'The blue and white machine and its ducting mounted on a steel frame at the unit',
+      mr: 'युनिटमध्ये लोखंडी चौकटीवर बसवलेले निळे-पांढरे यंत्र व त्याचे नळ',
+    },
+  },
+  'poster-processing-line-interior': {
+    src: '/images/poster-processing-line-interior.jpeg',
+    subject: { en: 'Bulk grain on the shed floor', mr: 'शेडच्या जमिनीवरील मोठा धान्याचा ढीग' },
+    alt: {
+      en: 'A large heap of grain spread across the shed floor, with a rake standing in it',
+      mr: 'शेडच्या जमिनीवर पसरलेला धान्याचा मोठा ढीग, त्यात उभी असलेली विळवण',
     },
   },
 } satisfies Record<string, PhotoSlot>;
@@ -170,31 +362,169 @@ export function photo(key: PhotoKey): PhotoSlot {
   return photos[key];
 }
 
-/** Gallery grouping. Categories follow SRS §7.8. */
+/* ── Video ─────────────────────────────────────────────────────────────────
+ * Clips are portrait phone captures (~478×850), so they are never upscaled
+ * beyond the width they were shot at. Nothing here autoplays: <Video> shows
+ * the poster frame and only attaches a player when the visitor asks for it,
+ * so a page carrying eight clips still downloads no video data on load.
+ * ---------------------------------------------------------------------- */
+
+export type VideoSlot = {
+  /** Public path, e.g. `/videos/farm-harvesting.mp4`. */
+  src: string;
+  /** Registry key of the poster frame — a real still from this clip. */
+  poster: PhotoKey;
+  /** Short label for the clip. */
+  title: L;
+  /** One line describing what the clip shows. */
+  caption: L;
+};
+
+export type VideoKey = keyof typeof videos;
+
+export const videos = {
+  'farm-harvesting': {
+    src: '/videos/farm-harvesting.mp4',
+    poster: 'poster-farm-harvesting',
+    title: { en: 'The crop before it is cut', mr: 'कापणीपूर्वीचे पीक' },
+    caption: {
+      en: 'A field of ripe grain standing in the sun, ready for harvest.',
+      mr: 'ऊनात उभे असलेले पिकलेले धान्याचे शेत, कापणीसाठी तयार.',
+    },
+  },
+  'grain-unloading': {
+    src: '/videos/grain-unloading.mp4',
+    poster: 'poster-grain-unloading',
+    title: { en: 'Harvesting in the field', mr: 'शेतात कापणी' },
+    caption: {
+      en: 'A combine harvester moving through the crop, cutting and threshing as it goes.',
+      mr: 'पिकातून जाणारे कापणी यंत्र, कापणी व मळणी एकाच वेळी करताना.',
+    },
+  },
+  'machine-operation': {
+    src: '/videos/machine-operation.mp4',
+    poster: 'poster-machine-operation',
+    title: { en: 'The machine line', mr: 'यंत्राची रांग' },
+    caption: {
+      en: 'The full processing machine inside the shed — bucket elevators, hoppers, main body and drive motors.',
+      mr: 'शेडमधील संपूर्ण प्रक्रिया यंत्र — बादली लिफ्ट, हॉपर, मुख्य भाग व चालक मोटारी.',
+    },
+  },
+  'grain-processing-machine': {
+    src: '/videos/grain-processing-machine.mp4',
+    poster: 'poster-grain-processing-machine',
+    title: { en: 'Working at the machine', mr: 'यंत्रावर काम' },
+    caption: {
+      en: 'A worker at the machine inside the shed, with material moving through the line.',
+      mr: 'शेडमधील यंत्रावर काम करणारा कामगार, रांगेतून माल जात असताना.',
+    },
+  },
+  'grain-processing-output': {
+    src: '/videos/grain-processing-output.mp4',
+    poster: 'poster-grain-processing-output',
+    title: { en: 'Filling at the outlet', mr: 'आउटलेटवर पोते भरणे' },
+    caption: {
+      en: 'A worker filling sacks from the machine outlet as the processed material comes through.',
+      mr: 'प्रक्रिया केलेला माल येत असताना यंत्राच्या आउटलेटवरून पोती भरणारा कामगार.',
+    },
+  },
+  'grain-processing-closeup': {
+    src: '/videos/grain-processing-closeup.mp4',
+    poster: 'poster-grain-processing-closeup',
+    title: { en: 'Grain leaving the machine', mr: 'यंत्रातून धान्य बाहेर पडणे' },
+    caption: {
+      en: 'Processed grain running from the outlet while a worker holds the sack open beneath it.',
+      mr: 'आउटलेटवरून प्रक्रिया केलेले धान्य पडत असताना खाली पोते उघडे धरणारा कामगार.',
+    },
+  },
+  'processing-line-interior': {
+    src: '/videos/processing-line-interior.mp4',
+    poster: 'poster-processing-line-interior',
+    title: { en: 'Bulk grain in the shed', mr: 'शेडमधील मोठ्या प्रमाणातील धान्य' },
+    caption: {
+      en: 'A large heap of grain on the shed floor, being turned over with a rake.',
+      mr: 'शेडच्या जमिनीवरील धान्याचा मोठा ढीग, विळवणीने उलटून देताना.',
+    },
+  },
+  'facility-operations': {
+    src: '/videos/facility-operations.mp4',
+    poster: 'poster-facility-operations',
+    title: { en: 'Plant outside the shed', mr: 'शेडबाहेरील यंत्रणा' },
+    caption: {
+      en: 'The machine and ducting mounted on its steel frame at the unit.',
+      mr: 'युनिटमध्ये लोखंडी चौकटीवर बसवलेले यंत्र व नळ.',
+    },
+  },
+} satisfies Record<string, VideoSlot>;
+
+export function video(key: VideoKey): VideoSlot {
+  return videos[key];
+}
+
+/** Gallery grouping. */
 export const galleryCategories = [
   {
     id: 'facility',
-    title: { en: 'Facility', mr: 'युनिट' } satisfies L,
-    items: ['facility-exterior', 'facility-interior'] as PhotoKey[],
+    title: { en: 'The unit', mr: 'युनिट' } satisfies L,
+    items: ['facility-exterior', 'team-at-entrance'] as PhotoKey[],
   },
   {
     id: 'machinery',
     title: { en: 'Machinery', mr: 'यंत्रसामग्री' } satisfies L,
-    items: ['machinery-overview', 'machinery-detail'] as PhotoKey[],
+    items: [
+      'machinery-processing-unit',
+      'machinery-grain-processing',
+      'machinery-detail',
+    ] as PhotoKey[],
   },
   {
     id: 'processing',
     title: { en: 'Processing', mr: 'प्रक्रिया' } satisfies L,
-    items: ['service-cleaning', 'service-sorting', 'service-dal-milling', 'service-spice-grinding'] as PhotoKey[],
+    items: [
+      'grain-quality-closeup',
+      'processed-grain-closeup',
+      'processed-pulse-mix',
+      'grain-closeup-detail',
+    ] as PhotoKey[],
   },
   {
     id: 'products',
-    title: { en: 'Products', mr: 'उत्पादने' } satisfies L,
-    items: ['product-corn-grit', 'product-spice-powders'] as PhotoKey[],
+    title: { en: 'Processed material', mr: 'प्रक्रिया केलेला माल' } satisfies L,
+    items: [
+      'processed-grain-varieties',
+      'packaged-grain-bags',
+      'processed-grain-bags',
+      'bulk-processed-grain',
+    ] as PhotoKey[],
   },
   {
-    id: 'operations',
-    title: { en: 'Operations', mr: 'कामकाज' } satisfies L,
-    items: ['operations-loading', 'operations-packaging', 'operations-team'] as PhotoKey[],
+    id: 'grain',
+    title: { en: 'Grain close-ups', mr: 'धान्य जवळून' } satisfies L,
+    items: ['cleaned-grain-in-hand', 'pulse-grain-dark', 'processed-grain-light'] as PhotoKey[],
+  },
+  {
+    id: 'people',
+    title: { en: 'The team', mr: 'कर्मचारी' } satisfies L,
+    items: ['operations-team', 'team-at-facility'] as PhotoKey[],
+  },
+  {
+    id: 'signage',
+    title: { en: 'Our signboard', mr: 'आमचा साइनबोर्ड' } satisfies L,
+    items: [
+      'business-signboard-om-agrosphere',
+      'business-banner-wheat-filter-machine',
+    ] as PhotoKey[],
   },
 ] as const;
+
+/** Every clip in the registry, in the order the gallery presents them. */
+export const galleryVideos = [
+  'machine-operation',
+  'grain-processing-machine',
+  'grain-processing-output',
+  'grain-processing-closeup',
+  'processing-line-interior',
+  'facility-operations',
+  'farm-harvesting',
+  'grain-unloading',
+] as VideoKey[];

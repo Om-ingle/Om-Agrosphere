@@ -183,3 +183,11 @@ export function LayersIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function PlayIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M8 5.5v13l10-6.5Z" />
+    </svg>
+  );
+}

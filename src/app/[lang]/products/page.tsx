@@ -183,6 +183,41 @@ export default async function ProductsPage({ params }: PageProps) {
         </Section>
       ))}
 
+      {/* Processed material handled for customers. Kept clearly separate from
+          the two products above — these are lots processed on request, not
+          products we make and sell under our own name. */}
+      <Section tone="dark" divider>
+        <SectionHeading
+          eyebrow={{ en: 'Processed material', mr: 'प्रक्रिया केलेला माल' }}
+          title={{
+            en: 'What else comes out of the unit',
+            mr: 'युनिटमधून आणखी काय बाहेर पडते',
+          }}
+          intro={{
+            en: 'Material processed here on customers’ behalf, photographed at the unit. These are examples of the work, not products we sell under our own name — the two products above are the ones we make ourselves.',
+            mr: 'ग्राहकांच्या वतीने येथे प्रक्रिया केलेला माल, युनिटमध्ये छायाचित्रित केलेला. ही कामाची उदाहरणे आहेत, आमच्या नावाने विकली जाणारी उत्पादने नाहीत — आम्ही स्वतः तयार करतो ती वरील दोन उत्पादने आहेत.',
+          }}
+          tone="dark"
+          lang={lang}
+        />
+
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {(['processed-grain-varieties', 'packaged-grain-bags', 'processed-grain-bags'] as const).map(
+            (key) => (
+              <li key={key}>
+                <Photo
+                  photoKey={key}
+                  lang={lang}
+                  tone="dark"
+                  className="aspect-[4/3] w-full rounded border border-white/15"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                />
+              </li>
+            ),
+          )}
+        </ul>
+      </Section>
+
       {/* Sales channels */}
       <Section tone="paper" divider>
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">

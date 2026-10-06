@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 
 import { href, pick, toLang, type Lang } from '@/lib/i18n';
 import { trustPoints } from '@/content/faqs';
-import { galleryCategories } from '@/content/media';
 import { ui } from '@/content/ui';
 import { addressLine, site } from '@/content/site';
 import { breadcrumbSchema, graph, localBusinessSchema, organizationSchema } from '@/lib/seo';
@@ -12,6 +11,7 @@ import { Section } from '@/components/Section';
 import { SectionHeading } from '@/components/SectionHeading';
 import { CtaBand } from '@/components/CtaBand';
 import { Photo } from '@/components/Photo';
+import { Video } from '@/components/Video';
 import { JsonLd } from '@/components/JsonLd';
 import { ButtonInternal } from '@/components/Button';
 import {
@@ -214,7 +214,7 @@ export default async function AboutPage({ params }: PageProps) {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-5 lg:order-2">
             <Photo
-              photoKey="machinery-overview"
+              photoKey="machinery-processing-unit"
               lang={lang}
               className="aspect-[4/5] w-full rounded border border-ink/10"
               sizes="(min-width: 1024px) 40vw, 100vw"
@@ -290,29 +290,52 @@ export default async function AboutPage({ params }: PageProps) {
           eyebrow={{ en: 'Infrastructure', mr: 'यंत्रसामग्री व सुविधा' }}
           title={ui.insideFacility}
           intro={{
-            en: 'Photographs of the unit, the machinery and the work as it happens. Each one is published as soon as it is ready.',
-            mr: 'युनिट, यंत्रसामग्री व चालू असलेल्या कामाची छायाचित्रे. प्रत्येक छायाचित्र तयार होताच प्रकाशित केले जाते.',
+            en: 'Photographs of the unit, the machinery, the people and the material as it comes through. Every frame here was taken at our own unit.',
+            mr: 'युनिट, यंत्रसामग्री, कर्मचारी व येणाऱ्या मालाची छायाचित्रे. येथील प्रत्येक छायाचित्र आमच्याच युनिटमध्ये घेतलेले आहे.',
           }}
           tone="dark"
           lang={lang}
         />
 
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {galleryCategories
-            .find((category) => category.id === 'machinery')!
-            .items.concat(galleryCategories.find((category) => category.id === 'facility')!.items)
-            .map((key) => (
-              <li key={key}>
-                <Photo
-                  photoKey={key}
-                  lang={lang}
-                  tone="dark"
-                  className="aspect-[4/3] w-full rounded border border-white/15"
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                />
-              </li>
-            ))}
+          {(
+            [
+              'machinery-grain-processing',
+              'machinery-detail',
+              'operations-team',
+              'team-at-facility',
+              'processed-grain-bags',
+              'team-at-entrance',
+            ] as const
+          ).map((key) => (
+            <li key={key}>
+              <Photo
+                photoKey={key}
+                lang={lang}
+                tone="dark"
+                className="aspect-[4/3] w-full rounded border border-white/15"
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              />
+            </li>
+          ))}
         </ul>
+
+        <div className="mt-4 grid gap-6 sm:grid-cols-2">
+          <Video
+            videoKey="processing-line-interior"
+            lang={lang}
+            tone="dark"
+            className="aspect-[3/4]"
+            sizes="(min-width: 640px) 45vw, 100vw"
+          />
+          <Video
+            videoKey="facility-operations"
+            lang={lang}
+            tone="dark"
+            className="aspect-[3/4]"
+            sizes="(min-width: 640px) 45vw, 100vw"
+          />
+        </div>
 
         <div className="mt-8">
           <ButtonInternal href={href(lang, 'gallery')} variant="onDark">

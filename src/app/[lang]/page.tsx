@@ -4,9 +4,7 @@ import { href, pick, toLang, type Lang } from '@/lib/i18n';
 import { services } from '@/content/services';
 import { products } from '@/content/products';
 import { featuredFaqs, trustPoints } from '@/content/faqs';
-import { galleryCategories } from '@/content/media';
-import { ui } from '@/content/ui';
-import { directionsUrl, localityLine, mailtoHref, site, telHref, whatsappHref } from '@/content/site';
+import { ui } from '@/content/ui';import { directionsUrl, localityLine, mailtoHref, site, telHref, whatsappHref } from '@/content/site';
 import { buildWhatsAppOpener } from '@/lib/inquiry-message';
 import {
   faqSchema,
@@ -25,6 +23,7 @@ import { CropGrid } from '@/components/CropGrid';
 import { FaqList } from '@/components/FaqList';
 import { CtaBand } from '@/components/CtaBand';
 import { Photo } from '@/components/Photo';
+import { Video } from '@/components/Video';
 import { JsonLd } from '@/components/JsonLd';
 import { ButtonInternal, ButtonLink } from '@/components/Button';
 import { TrackedLink } from '@/components/TrackedLink';
@@ -298,7 +297,7 @@ export default async function HomePage({ params }: PageProps) {
 
           <div className="lg:col-span-5">
             <Photo
-              photoKey="intro-grain"
+              photoKey="cleaned-grain-in-hand"
               lang={lang}
               className="aspect-[4/5] w-full rounded border border-ink/10"
               sizes="(min-width: 1024px) 40vw, 100vw"
@@ -431,19 +430,24 @@ export default async function HomePage({ params }: PageProps) {
         </div>
 
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {galleryCategories.slice(0, 4).flatMap((category) =>
-            category.items.slice(0, 1).map((key) => (
-              <li key={key}>
-                <Photo
-                  photoKey={key}
-                  lang={lang}
-                  tone="dark"
-                  className="aspect-[4/3] w-full rounded border border-white/15"
-                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                />
-              </li>
-            )),
-          )}
+          {(
+            [
+              'machinery-processing-unit',
+              'grain-quality-closeup',
+              'processed-grain-varieties',
+              'team-at-facility',
+            ] as const
+          ).map((key) => (
+            <li key={key}>
+              <Photo
+                photoKey={key}
+                lang={lang}
+                tone="dark"
+                className="aspect-[4/3] w-full rounded border border-white/15"
+                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+              />
+            </li>
+          ))}
         </ul>
       </Section>
 
@@ -451,12 +455,20 @@ export default async function HomePage({ params }: PageProps) {
       <Section tone="paper" divider>
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-14">
           <div className="lg:col-span-5 lg:order-2">
-            <Photo
-              photoKey="farmer-delivery"
-              lang={lang}
-              className="aspect-[4/5] w-full rounded border border-ink/10"
-              sizes="(min-width: 1024px) 40vw, 100vw"
-            />
+            <div className="grid grid-cols-2 gap-4">
+              <Video
+                videoKey="farm-harvesting"
+                lang={lang}
+                className="aspect-[3/4]"
+                sizes="(min-width: 1024px) 20vw, 50vw"
+              />
+              <Video
+                videoKey="grain-unloading"
+                lang={lang}
+                className="aspect-[3/4]"
+                sizes="(min-width: 1024px) 20vw, 50vw"
+              />
+            </div>
           </div>
 
           <div className="lg:col-span-7 lg:order-1">

@@ -110,6 +110,16 @@ export function Photo({
     );
   }
 
+  // Several of the real photographs are tall phone portraits. A centre crop of
+  // the entrance shot cuts the signboard off the top, so the slot decides where
+  // the crop should sit.
+  const focus =
+    slot.focus === 'top'
+      ? 'object-top'
+      : slot.focus === 'bottom'
+        ? 'object-bottom'
+        : 'object-center';
+
   return (
     <div className={['relative overflow-hidden bg-paper-deep', className].join(' ')}>
       <Image
@@ -119,7 +129,7 @@ export function Photo({
         sizes={sizes}
         priority={priority}
         loading={priority ? undefined : 'lazy'}
-        className="object-cover"
+        className={`object-cover ${focus}`}
       />
     </div>
   );

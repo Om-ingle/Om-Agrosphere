@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import { pick, toLang, type Lang } from '@/lib/i18n';
-import { galleryCategories } from '@/content/media';
+import { galleryCategories, galleryVideos } from '@/content/media';
 import { breadcrumbSchema, graph, localBusinessSchema, organizationSchema } from '@/lib/seo';
 
 import { PageHeader } from '@/components/PageHeader';
@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const title = lang === 'en' ? 'Gallery — Facility, Machinery & Operations' : 'छायाचित्रे — युनिट, यंत्रसामग्री व कामकाज';
   const description =
     lang === 'en'
-      ? 'Photographs of the Om Agrosphere processing unit, machinery, processing operations and products on the Dhule–Solapur Highway, Maharashtra.'
-      : 'धुळे–सोलापूर महामार्ग, महाराष्ट्र येथील ओम अ‍ॅग्रोस्फिअर प्रक्रिया युनिट, यंत्रसामग्री, प्रक्रिया व उत्पादनांची छायाचित्रे.';
+      ? 'Photographs and video of the Om Agrosphere processing unit, machinery, processing operations and products on the Dhule–Solapur Highway, Maharashtra.'
+      : 'धुळे–सोलापूर महामार्ग, महाराष्ट्र येथील ओम अ‍ॅग्रोस्फिअर प्रक्रिया युनिट, यंत्रसामग्री, प्रक्रिया व उत्पादनांची छायाचित्रे व व्हिडिओ.';
 
   return {
     title,
@@ -44,6 +44,7 @@ export default async function GalleryPage({ params }: PageProps) {
     (count, category) => count + category.items.length,
     0,
   );
+  const totalVideos = galleryVideos.length;
 
   return (
     <>
@@ -63,8 +64,8 @@ export default async function GalleryPage({ params }: PageProps) {
         eyebrow={{ en: 'Gallery', mr: 'छायाचित्रे' }}
         title={{ en: 'Our unit, as it actually looks', mr: 'आमचे युनिट, प्रत्यक्षात जसे आहे' }}
         intro={{
-          en: 'Everything here is a photograph of our own facility, machinery, produce and work — nothing borrowed, nothing staged. Each slot shows what the photograph will show once it is published.',
-          mr: 'येथील प्रत्येक छायाचित्र आमच्याच युनिट, यंत्रसामग्री, माल व कामाचे आहे — कुठूनही घेतलेले नाही, रंगवलेले नाही. प्रत्येक जागा ते छायाचित्र प्रकाशित झाल्यावर काय दाखवेल हे सांगते.',
+          en: 'Every frame here was taken at our own unit — the plant, the material, the people who run it and the signboard on the highway. Nothing is a stock image and nothing is borrowed from another plant.',
+          mr: 'येथील प्रत्येक छायाचित्र आमच्याच युनिटमध्ये घेतलेले आहे — यंत्रणा, माल, ती चालवणारी मंडळी आणि महामार्गावरील साइनबोर्ड. काहीही स्टॉक प्रतिमा नाही आणि दुसऱ्या कारखान्याकडून घेतलेले नाही.',
         }}
         trail={trail}
       />
@@ -76,13 +77,13 @@ export default async function GalleryPage({ params }: PageProps) {
       <Section tone="dim" divider>
         <div className="max-w-prose">
           <h2 className="font-heading text-xl text-ink">
-            {pick({ en: 'Why some frames are empty', mr: 'काही जागा रिकाम्या का आहेत' }, lang)}
+            {pick({ en: 'What is still missing here', mr: 'येथे अजून काय बाकी आहे' }, lang)}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-ink-soft">
             {pick(
               {
-                en: `This page has room for ${totalPhotos} photographs across five groups. The ones you see marked "photograph to be added" are slots waiting for a real picture of our own unit. We will not fill them with stock photography or images of somebody else's plant, because a gallery that misleads the person looking at it is worse than a gallery that is incomplete.`,
-                mr: `या पानावर पाच गटांत ${totalPhotos} छायाचित्रांसाठी जागा आहे. "छायाचित्र लवकरच जोडले जाईल" अशा दिसणाऱ्या जागा आमच्याच युनिटच्या खऱ्या छायाचित्राची वाट पाहत आहेत. त्या आम्ही स्टॉक छायाचित्रांनी किंवा दुसऱ्याच्या कारखान्याच्या प्रतिमांनी भरणार नाही, कारण पाहणाऱ्याला दिशाभूल करणारे छायाचित्रसंग्रह अपूर्ण छायाचित्रसंग्रहापेक्षा वाईट असतो.`,
+                en: `${totalPhotos} photographs and ${totalVideos} clips are published above, all of them our own. A few frames are still outstanding, and we would rather name them than pad the page. We are waiting on a wide view of the unit from the highway, and on photographs that tie each of the five services to the particular machine that performs it — a machine will not be captioned with a job until the business confirms which one does what. Corn grit and spice powders will get their own pictures once they are taken.`,
+                mr: `वर ${totalPhotos} छायाचित्रे व ${totalVideos} व्हिडिओ प्रकाशित केले आहेत, सर्व आमचेच. काही छायाचित्रे अजून बाकी आहेत, आणि पान भरण्यापेक्षा ती नावाने सांगणे आम्हाला योग्य वाटते. महामार्गावरून युनिटचे विस्तृत दृश्य, आणि प्रत्येक सेवेची ती सेवा करणाऱ्या विशिष्ट यंत्राशी जोडणारी छायाचित्रे अजून हवी आहेत — कोणते यंत्र कोणते काम करते हे व्यवसायाने निश्चित करेपर्यंत यंत्रावर कामाचे नाव लावले जाणार नाही. मक्याचा भरडा व मसाला पूड यांची छायाचित्रे घेतल्यावर लावली जातील.`,
               },
               lang,
             )}

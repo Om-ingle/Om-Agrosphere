@@ -9,6 +9,8 @@ import { PageHeader } from '@/components/PageHeader';
 import { Section } from '@/components/Section';
 import { SectionHeading } from '@/components/SectionHeading';
 import { ServiceCard } from '@/components/ServiceCard';
+import { Photo } from '@/components/Photo';
+import { Video } from '@/components/Video';
 import { CropGrid } from '@/components/CropGrid';
 import { CtaBand } from '@/components/CtaBand';
 import { JsonLd } from '@/components/JsonLd';
@@ -81,6 +83,57 @@ export default async function ServicesPage({ params }: PageProps) {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <ServiceCard key={service.slug} service={service} lang={lang} />
+          ))}
+        </div>
+      </Section>
+
+      {/* The unit itself — what the five services above actually run on. */}
+      <Section tone="dark" divider>
+        <SectionHeading
+          eyebrow={{ en: 'Inside the unit', mr: 'युनिटच्या आत' }}
+          title={{ en: 'The plant these services run on', mr: 'या सेवा ज्या यंत्रणेवर चालतात' }}
+          intro={{
+            en: 'Our own machinery, photographed and filmed at the unit. Nothing on this page is a stock image or a picture of somebody else’s plant.',
+            mr: 'आमचीच यंत्रसामग्री, युनिटमध्ये छायाचित्रित व चित्रित केलेली. या पानावरील काहीही स्टॉक प्रतिमा किंवा दुसऱ्याच्या कारखान्याचे चित्र नाही.',
+          }}
+          tone="dark"
+          lang={lang}
+        />
+
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {(['machinery-processing-unit', 'machinery-grain-processing', 'grain-quality-closeup'] as const).map(
+            (key) => (
+              <li key={key}>
+                <Photo
+                  photoKey={key}
+                  lang={lang}
+                  tone="dark"
+                  className="aspect-[4/3] w-full rounded border border-white/15"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                />
+              </li>
+            ),
+          )}
+        </ul>
+
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {(
+            [
+              'machine-operation',
+              'grain-processing-machine',
+              'grain-processing-output',
+              'grain-processing-closeup',
+              'processing-line-interior',
+            ] as const
+          ).map((key) => (
+            <Video
+              key={key}
+              videoKey={key}
+              lang={lang}
+              tone="dark"
+              className="aspect-[3/4]"
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            />
           ))}
         </div>
       </Section>
