@@ -42,7 +42,12 @@ export type PhotoSlot = {
 export type PhotoKey = keyof typeof photos;
 
 export const photos = {
-  /* ── Pending: the business still has to supply these ───────────────────── */
+  /* ── Services and products ───────────────────────────────────────────────
+   * These slots are keyed by need rather than by file, because the service and
+   * product definitions in `services.ts` / `products.ts` reference them by name.
+   * A `src` of `null` renders the pending panel. See MEDIA.md for what is
+   * still outstanding and why.
+   * ---------------------------------------------------------------------- */
 
   'hero-facility': {
     src: null,
@@ -53,37 +58,39 @@ export const photos = {
     },
   },
   'service-cleaning': {
-    src: null,
-    subject: { en: 'Grain cleaning machine at work', mr: 'धान्य स्वच्छता यंत्र सुरू असताना' },
+    src: '/images/machinery-detail.jpeg',
+    subject: { en: 'Blower and cyclone separator', mr: 'ब्लोअर व सायक्लोन विभाजक' },
     alt: {
-      en: 'Grain cleaning machine separating dust and chaff from harvested grain',
-      mr: 'कापणी केलेल्या धान्यातून धूळ व भुसा वेगळा करणारे स्वच्छता यंत्र',
+      en: 'The blower and cyclone separator on the cleaning line, with a sack tied at the top of the cone',
+      mr: 'स्वच्छता रांगेतील ब्लोअर व सायक्लोन विभाजक, शंकूच्या वर बांधलेले पोते',
     },
   },
   'service-sorting': {
-    src: null,
-    subject: { en: 'Sorting operation', mr: 'प्रतवारी करताना' },
+    src: '/images/machinery-processing-unit.jpeg',
+    subject: { en: 'Discharging into separate sacks', mr: 'वेगवेगळ्या पोत्यांत माल सोडणे' },
     alt: {
-      en: 'Grain being sorted into separate streams at the unit',
-      mr: 'युनिटमध्ये धान्याची वेगवेगळ्या भागांत प्रतवारी होत असताना',
+      en: 'The processing machine discharging grain through separate outlets into individual sacks',
+      mr: 'प्रक्रिया यंत्र, वेगवेगळ्या आउटलेटमधून स्वतंत्र पोत्यांत धान्य सोडताना',
     },
   },
   'service-grading': {
-    src: null,
-    subject: { en: 'Graded grain lots', mr: 'ग्रेडिंग केलेले धान्य' },
+    src: '/images/processed-grain-varieties.jpeg',
+    subject: { en: 'Separated lots of clean grain', mr: 'वेगळे केलेले स्वच्छ धान्याचे माल' },
     alt: {
-      en: 'Graded grain lots separated by size after processing',
-      mr: 'प्रक्रियेनंतर आकारानुसार वेगळे केलेले धान्याचे प्रकार',
+      en: 'Seven open sacks of clean grain and pulses, each lot kept separate after processing',
+      mr: 'स्वच्छ धान्य व डाळीची सात उघडी पोती, प्रक्रियेनंतर प्रत्येक माल वेगळा ठेवलेला',
     },
   },
   'service-dal-milling': {
-    src: null,
-    subject: { en: 'Dal mill in operation', mr: 'डाळ मिल सुरू असताना' },
+    src: '/images/bulk-processed-grain.jpeg',
+    subject: { en: 'Split pulses in bulk', mr: 'मोठ्या प्रमाणातील फुटलेली डाळ' },
     alt: {
-      en: 'Dal milling machinery processing pulses into split dal',
-      mr: 'कडधान्यापासून डाळ तयार करणारी डाळ मिल यंत्रणा',
+      en: 'Split pulses filling an open sack at the unit',
+      mr: 'युनिटमध्ये उघड्या पोत्यात भरलेली फुटलेली डाळ',
     },
   },
+  // No spice photograph or clip exists in the supplied media, so this stays on
+  // the pending panel rather than borrowing an image of something else.
   'service-spice-grinding': {
     src: null,
     subject: { en: 'Spice grinding at the unit', mr: 'युनिटमध्ये मसाला दळताना' },
@@ -153,8 +160,8 @@ export const photos = {
     src: '/images/machinery-detail.jpeg',
     subject: { en: 'Separator and blower unit', mr: 'विभाजक व ब्लोअर युनिट' },
     alt: {
-      en: 'The orange cyclone separator and blower unit of the processing line, with a collection sack tied beneath it',
-      mr: 'प्रक्रिया रांगेतील नारिंगी सायक्लोन विभाजक व ब्लोअर युनिट, खाली बांधलेले गोळा करणारे पोते',
+      en: 'The orange blower and cyclone separator in the shed, with its ducting and a sack tied at the top of the cone',
+      mr: 'शेडमधील नारिंगी ब्लोअर व सायक्लोन विभाजक, त्याचे नळ व शंकूच्या वर बांधलेले पोते',
     },
   },
 

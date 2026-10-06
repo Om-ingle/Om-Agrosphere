@@ -44,27 +44,34 @@ photography or with a picture of another plant.
 | Slot | What is needed | Where it shows |
 | --- | --- | --- |
 | `hero-facility` | Wide view of the unit from the highway | Homepage hero |
-| `service-cleaning` | The machine that performs cleaning | Service card + service page |
-| `service-sorting` | The machine that performs sorting | Service card + service page |
-| `service-grading` | The machine that performs grading | Service card + service page |
-| `service-dal-milling` | The dal mill in operation | Service card + service page |
 | `service-spice-grinding` | Spice grinding, at this unit | Service card + service page |
 | `product-corn-grit` | Corn grit, close-up and packed | Products page |
 | `product-spice-powders` | Spice powders | Products page |
 
-### Why the five service slots are empty
+### Service cards: what was assigned, and how confident to be
 
-The supplied photographs show the plant, but nothing in them is labelled with
-the job it does. A machine will not be captioned with a service until the
-business confirms which machine performs which operation. To close these five
-slots, supply either:
+The four service cards below were filled from the supplied media, but these are
+inferences from what the photographs show — no machine in them is labelled with
+the job it does. Swap any of them the moment the business confirms otherwise.
 
-- one photograph per service, of the specific machine doing that job, or
-- confirmation of which of the existing machines does cleaning, which does
-  sorting, which does grading, and which does dal milling.
+| Service | Image | Basis |
+| --- | --- | --- |
+| Grain Cleaning | `machinery-detail.jpeg` | Blower plus cyclone separator — the dust and chaff extraction stage. The business's own signboard banner advertises a "गहू फिल्टर मशीन" for धान्य स्वच्छता, which this matches. |
+| Grain Sorting | `machinery-processing-unit.jpeg` | The machine discharging through separate outlets into individual sacks — a lot divided into streams. |
+| Grain Grading | `processed-grain-varieties.jpeg` | Seven sacks of clean grain and pulses, each lot kept separate. Shows the separated output rather than the machine. |
+| Dal Milling | `bulk-processed-grain.jpeg` | Split pulses in bulk in a sack. This is the processed output, not the mill itself. |
+| Spice Grinding | — (still pending) | **No photograph or clip in the supplied set shows spices at all.** Nothing is assigned here rather than borrowing an image of a different process. |
 
-Spice grinding and corn grit stay empty until a real picture of each exists —
-there is currently no evidence either is produced at this unit.
+`machinery-processing-unit.jpeg` now appears both in the Services page's "Inside
+the unit" band and on the Sorting card. If that reads as repetitive, the band is
+the one to change.
+
+### Closing the remaining slots
+
+- One photograph per outstanding service, of the specific machine doing that job,
+  or confirmation of which machine does which operation.
+- Spice grinding and corn grit stay empty until a real picture of each exists —
+  there is currently no evidence either is produced at this unit.
 
 ## Notes on what was supplied
 
