@@ -136,6 +136,32 @@ export default async function AboutPage({ params }: PageProps) {
                 )}
               </p>
             </div>
+
+            {/* The owner — name and designation only, both already confirmed
+                in site.ts. The photograph is the supplied portrait. */}
+            <figure className="mt-8 flex items-center gap-5 rounded border border-ink/10 bg-white p-4 shadow-card sm:gap-6 sm:p-5">
+              <Photo
+                photoKey="owner-founder"
+                lang={lang}
+                className="aspect-[3/4] w-24 shrink-0 rounded border border-ink/10 sm:w-32"
+                sizes="(min-width: 640px) 128px, 96px"
+              />
+              <figcaption>
+                <p className="text-[0.6rem] font-semibold tracking-[0.16em] uppercase text-ink-muted">
+                  {pick({ en: 'The owner', mr: 'मालक' }, lang)}
+                </p>
+                <p className="mt-1 font-heading text-lg text-ink">{site.owner.name}</p>
+                <p className="mt-1 text-sm leading-relaxed text-ink-soft">
+                  {pick(
+                    {
+                      en: `${site.owner.designation.en} of Om Agrosphere, at the unit in Diwashi.`,
+                      mr: `ओम अ‍ॅग्रोस्फिअरचे ${site.owner.designation.mr}, दिवाशी येथील युनिटमध्ये.`,
+                    },
+                    lang,
+                  )}
+                </p>
+              </figcaption>
+            </figure>
           </div>
 
           <div className="lg:col-span-5">

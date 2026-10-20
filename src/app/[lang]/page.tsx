@@ -184,7 +184,7 @@ export default async function HomePage({ params }: PageProps) {
                   lang={lang}
                   priority
                   tone="dark"
-                  className="relative aspect-[4/3] w-full rounded-sm border border-white/10 sm:aspect-[16/10] lg:aspect-[4/5]"
+                  className="relative aspect-[16/10] w-full rounded-sm border border-white/10 lg:aspect-[16/11]"
                   sizes="(min-width: 1024px) 46vw, 100vw"
                 />
               </div>

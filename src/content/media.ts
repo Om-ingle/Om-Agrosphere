@@ -11,8 +11,8 @@ import type { L } from '@/lib/i18n';
  *
  *   • a PENDING slot — `src` is `null`, and the <Photo> component renders a
  *     clearly labelled "photograph to be added" panel. Pending slots are named
- *     after the *need* (hero-facility, service-cleaning, …) rather than a file,
- *     because no file exists yet.
+ *     after the *need* (service-spice-grinding, product-corn-grit, …) rather
+ *     than a file, because no file exists yet.
  *
  * A pending slot is never filled with stock imagery or with a photograph of
  * somebody else's plant. Only the business can close a pending slot, by
@@ -50,11 +50,11 @@ export const photos = {
    * ---------------------------------------------------------------------- */
 
   'hero-facility': {
-    src: null,
+    src: '/images/facility-highway-view.jpeg',
     subject: { en: 'Processing unit, wide view', mr: 'प्रक्रिया युनिटचे विस्तृत दृश्य' },
     alt: {
-      en: 'The Om Agrosphere grain processing unit on the Dhule–Solapur Highway',
-      mr: 'धुळे–सोलापूर महामार्गावरील ओम अ‍ॅग्रोस्फिअर धान्य प्रक्रिया युनिट',
+      en: 'The wide blue facade of the Om Agrosphere unit on the Dhule–Solapur Highway, with the business signboards above the entrances',
+      mr: 'धुळे–सोलापूर महामार्गावरील ओम अ‍ॅग्रोस्फिअर युनिटचा निळा दर्शनी भाग, प्रवेशद्वारांवर व्यवसायाचे साइनबोर्ड',
     },
   },
   'service-cleaning': {
@@ -137,6 +137,14 @@ export const photos = {
       mr: 'युनिटच्या प्रवेशद्वारावर ओम अ‍ॅग्रोस्फिअर साइनबोर्डाखाली धान्य हातात धरून उभे असलेले दोन कर्मचारी',
     },
   },
+  'facility-interior-with-equipment': {
+    src: '/images/facility-interior-with-equipment.jpg',
+    subject: { en: 'Inside the processing shed', mr: 'प्रक्रिया शेडच्या आत' },
+    alt: {
+      en: 'Inside the corrugated shed, with green and yellow processing machinery, a weighing scale and sacks of material',
+      mr: 'पन्हाळी शेडच्या आत — हिरवे-पिवळे प्रक्रिया यंत्र, काटा व मालाची पोती',
+    },
+  },
 
   /* ── Machinery ─────────────────────────────────────────────────────────── */
 
@@ -164,6 +172,22 @@ export const photos = {
       mr: 'शेडमधील नारिंगी ब्लोअर व सायक्लोन विभाजक, त्याचे नळ व शंकूच्या वर बांधलेले पोते',
     },
   },
+  'machinery-with-output-bags': {
+    src: '/images/machinery-with-output-bags.jpg',
+    subject: { en: 'Outlets above waiting sacks', mr: 'आउटलेटखाली ठेवलेली पोती' },
+    alt: {
+      en: 'The green and yellow processing machine, with ribbed hoses feeding into sacks below its outlets',
+      mr: 'हिरवे-पिवळे प्रक्रिया यंत्र, आउटलेटखाली पोत्यांमध्ये जाणारे नालीदार नळ',
+    },
+  },
+  'machinery-conveyor-interior': {
+    src: '/images/machinery-conveyor-interior.jpg',
+    subject: { en: 'Conveying equipment inside the shed', mr: 'शेडमधील वाहक यंत्रणा' },
+    alt: {
+      en: 'A tall white bucket elevator and blue machine standing inside the shed, with ducting and sacks at the base',
+      mr: 'शेडमध्ये उभे असलेले उंच पांढरे बादली लिफ्ट व निळे यंत्र, खाली नळ व पोती',
+    },
+  },
 
   /* ── The people ────────────────────────────────────────────────────────── */
 
@@ -183,6 +207,15 @@ export const photos = {
       mr: 'शेडमध्ये प्रक्रिया यंत्र व काट्याजवळ उभे असलेले युनिटचे कर्मचारी',
     },
   },
+  'owner-founder': {
+    src: '/images/owner-founder.jpeg',
+    focus: 'top',
+    subject: { en: 'The owner at the unit', mr: 'युनिटमध्ये मालक' },
+    alt: {
+      en: 'The owner of Om Agrosphere standing in front of the unit entrance, below the business signboard',
+      mr: 'ओम अ‍ॅग्रोस्फिअरचे मालक युनिटच्या प्रवेशद्वारासमोर, व्यवसायाच्या साइनबोर्डाखाली उभे असताना',
+    },
+  },
 
   /* ── Processed material ────────────────────────────────────────────────── */
 
@@ -192,6 +225,22 @@ export const photos = {
     alt: {
       en: 'A handful of cleaned grain held up to the camera at the unit',
       mr: 'युनिटमध्ये कॅमेऱ्यासमोर हातात धरलेले स्वच्छ केलेले धान्य',
+    },
+  },
+  'pulse-green-in-hand': {
+    src: '/images/pulse-green-in-hand.jpg',
+    subject: { en: 'Green pulses in hand', mr: 'हातातील हिरवी डाळ' },
+    alt: {
+      en: 'A handful of green pulses held in an open palm',
+      mr: 'उघड्या तळहातात धरलेली हिरवी डाळ',
+    },
+  },
+  'pulse-yellow-split-in-hand': {
+    src: '/images/pulse-yellow-split-in-hand.jpg',
+    subject: { en: 'Yellow split pulses in hand', mr: 'हातातील पिवळी फुटलेली डाळ' },
+    alt: {
+      en: 'A handful of yellow split pulses held in the palm of a hand',
+      mr: 'तळहातात धरलेली पिवळी फुटलेली डाळ',
     },
   },
   'grain-quality-closeup': {
@@ -272,6 +321,25 @@ export const photos = {
     alt: {
       en: 'Detail view of processed grain and pulses at the unit',
       mr: 'युनिटमधील प्रक्रिया केलेले धान्य व डाळ यांचा तपशील',
+    },
+  },
+
+  /* ── The business's own signage ────────────────────────────────────────── */
+
+  'operations-bag-filling': {
+    src: '/images/operations-bag-filling.jpg',
+    subject: { en: 'Filling a sack at the outlet', mr: 'आउटलेटवर पोते भरणे' },
+    alt: {
+      en: 'A worker holding a sack open beneath the outlet of the green processing machine as material runs in',
+      mr: 'हिरव्या प्रक्रिया यंत्राच्या आउटलेटखाली पोते उघडे धरून माल भरताना कामगार',
+    },
+  },
+  'operations-sacks-and-machinery': {
+    src: '/images/operations-sacks-and-machinery.jpg',
+    subject: { en: 'Sacks stacked in the shed', mr: 'शेडमध्ये रचलेली पोती' },
+    alt: {
+      en: 'A large stack of empty woven sacks inside the shed, with processing machinery standing behind it',
+      mr: 'शेडमध्ये रचलेल्या रिकाम्या विणलेल्या पोत्यांचा मोठा ढीग, मागे उभे प्रक्रिया यंत्र',
     },
   },
 
@@ -473,7 +541,12 @@ export const galleryCategories = [
   {
     id: 'facility',
     title: { en: 'The unit', mr: 'युनिट' } satisfies L,
-    items: ['facility-exterior', 'team-at-entrance'] as PhotoKey[],
+    items: [
+      'hero-facility',
+      'facility-exterior',
+      'team-at-entrance',
+      'facility-interior-with-equipment',
+    ] as PhotoKey[],
   },
   {
     id: 'machinery',
@@ -482,12 +555,16 @@ export const galleryCategories = [
       'machinery-processing-unit',
       'machinery-grain-processing',
       'machinery-detail',
+      'machinery-with-output-bags',
+      'machinery-conveyor-interior',
     ] as PhotoKey[],
   },
   {
     id: 'processing',
     title: { en: 'Processing', mr: 'प्रक्रिया' } satisfies L,
     items: [
+      'operations-bag-filling',
+      'operations-sacks-and-machinery',
       'grain-quality-closeup',
       'processed-grain-closeup',
       'processed-pulse-mix',
@@ -507,12 +584,18 @@ export const galleryCategories = [
   {
     id: 'grain',
     title: { en: 'Grain close-ups', mr: 'धान्य जवळून' } satisfies L,
-    items: ['cleaned-grain-in-hand', 'pulse-grain-dark', 'processed-grain-light'] as PhotoKey[],
+    items: [
+      'cleaned-grain-in-hand',
+      'pulse-green-in-hand',
+      'pulse-yellow-split-in-hand',
+      'pulse-grain-dark',
+      'processed-grain-light',
+    ] as PhotoKey[],
   },
   {
     id: 'people',
     title: { en: 'The team', mr: 'कर्मचारी' } satisfies L,
-    items: ['operations-team', 'team-at-facility'] as PhotoKey[],
+    items: ['owner-founder', 'operations-team', 'team-at-facility'] as PhotoKey[],
   },
   {
     id: 'signage',

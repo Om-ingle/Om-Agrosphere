@@ -36,6 +36,27 @@ The clips are portrait phone captures (478×850). They are the lowest-resolution
 asset on the site and will look soft on a large display — worth re-shooting
 landscape at 1080p or better when convenient.
 
+## Later additions (supplied October 2026)
+
+| File | What it shows | Where it is used |
+| --- | --- | --- |
+| `facility-highway-view.jpeg` | Wide view of the blue unit facade from the highway, with both signboards above the entrances | Homepage hero, Gallery → The unit |
+| `owner-founder.jpeg` | The owner standing outside the entrance beneath the signboard | About page owner card, Gallery → The team |
+| `pulse-green-in-hand.jpg` | Green pulses held in a hand | Gallery → Grain close-ups |
+| `pulse-yellow-split-in-hand.jpg` | Yellow split pulses held in a hand | Gallery → Grain close-ups |
+| `operations-bag-filling.jpg` | A worker holding a sack open beneath a machine outlet | Gallery → Processing |
+| `operations-sacks-and-machinery.jpg` | A large stack of empty sacks inside the shed, machinery behind | Gallery → Processing |
+| `machinery-with-output-bags.jpg` | Machine outlets with ribbed hoses feeding sacks below | Gallery → Machinery |
+| `machinery-conveyor-interior.jpg` | Bucket elevator and machine inside the shed | Gallery → Machinery |
+| `facility-interior-with-equipment.jpg` | Shed interior with machinery, scale and sacks | Gallery → The unit |
+
+The two pulse stills are captioned by colour and form only. The exact pulse
+variety is not named until the business confirms it.
+
+`facility-signboard-video-still.jpg` is a darker, low-resolution exterior frame.
+The existing `business-signboard-om-agrosphere.jpeg` is clearer, so the video
+still is not published.
+
 ## Outstanding — still on a placeholder
 
 These slots have no real asset yet. None of them may be filled with stock
@@ -43,7 +64,6 @@ photography or with a picture of another plant.
 
 | Slot | What is needed | Where it shows |
 | --- | --- | --- |
-| `hero-facility` | Wide view of the unit from the highway | Homepage hero |
 | `service-spice-grinding` | Spice grinding, at this unit | Service card + service page |
 | `product-corn-grit` | Corn grit, close-up and packed | Products page |
 | `product-spice-powders` | Spice powders | Products page |
