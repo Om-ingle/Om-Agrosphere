@@ -5,9 +5,9 @@ import { site } from '@/content/site';
  * FAQ content (SRS §7.7).
  *
  * Every answer is limited to what the business has actually confirmed. Where a
- * fact is still pending (capacity, pack sizes, spice varieties) the answer says
- * so honestly and routes the customer to a working contact channel, instead of
- * inventing a detail.
+ * fact is still pending (capacity, pack sizes) the answer says so honestly and
+ * routes the customer to a working contact channel, instead of inventing a
+ * detail.
  */
 export type Faq = {
   id: string;
@@ -21,10 +21,13 @@ export const faqs: Faq[] = [
   {
     id: 'crops',
     featured: true,
-    question: { en: 'Which crops do you process?', mr: 'तुम्ही कोणती पिके प्रक्रिया करता?' },
+    question: {
+      en: 'Which crops and pulses do you work with?',
+      mr: 'तुम्ही कोणती पिके व कडधान्य हाताळता?',
+    },
     answer: {
-      en: 'We work with wheat, jowar, bajra, tur, chana, moong and urad. The service that applies to each crop depends on what you need — cleaning, sorting, grading or dal milling. If your crop is not on this list, send us an enquiry and we will tell you honestly whether we can help.',
-      mr: 'आम्ही गहू, ज्वारी, बाजरी, तूर, हरभरा, मूग व उडीद यांवर काम करतो. प्रत्येक पिकासाठी कोणती सेवा लागू होते हे तुमच्या गरजेवर अवलंबून असते — स्वच्छता, प्रतवारी, ग्रेडिंग किंवा डाळ मिल. या यादीत तुमचे पीक नसल्यास चौकशी पाठवा, आम्ही मदत करू शकतो की नाही हे प्रामाणिकपणे सांगू.',
+      en: 'We clean and trade soybean, maize, wheat, bajra and jowar. We process tur, moong, urad and chana into dal. If your crop or pulse is not on this list, send us an enquiry and we will tell you honestly whether we can help.',
+      mr: 'आम्ही सोयाबीन, मका, गहू, बाजरी व ज्वारी स्वच्छ करतो आणि त्यांची खरेदी-विक्री करतो. आम्ही तूर, मूग, उडीद व हरभरा यांची डाळ तयार करतो. या यादीत तुमचे पीक किंवा कडधान्य नसल्यास चौकशी पाठवा, आम्ही मदत करू शकतो की नाही हे प्रामाणिकपणे सांगू.',
     },
   },
   {
@@ -32,58 +35,54 @@ export const faqs: Faq[] = [
     featured: true,
     question: { en: 'What services do you provide?', mr: 'तुम्ही कोणत्या सेवा देतात?' },
     answer: {
-      en: 'Five services: grain cleaning, grain sorting, grain grading, dal milling / pulse processing, and spice grinding and packaging. Cleaning removes unwanted material, sorting separates grain by physical characteristics, grading fixes clear quality and size grades, dal milling processes pulses into dal, and spice grinding turns whole spices into packed powder.',
-      mr: 'पाच सेवा: धान्य स्वच्छता, धान्य प्रतवारी, धान्य ग्रेडिंग, डाळ मिल / कडधान्य प्रक्रिया आणि मसाला दळण व पॅकिंग. स्वच्छतेमध्ये अनावश्यक पदार्थ वेगळे केले जातात, प्रतवारीत धान्य भौतिक गुणधर्मांनुसार वेगळे होते, ग्रेडिंगमध्ये दर्जा व आकारानुसार प्रकार ठरवले जातात, डाळ मिलमध्ये कडधान्यावर प्रक्रिया करून डाळ तयार होते आणि मसाला दळणात संपूर्ण मसाले कुटून पॅक केलेली पूड तयार होते.',
+      en: 'Four services: grain cleaning; agricultural commodity buying and selling; dal processing; and animal feed bharada preparation. Cleaning removes unwanted material from soybean, maize, wheat, bajra and jowar, and we also buy and sell those commodities. Dal processing turns tur, moong, urad and chana into dal, which we sell. Bharada is made by combining and coarsely processing maize, dal husk, chura, wheat and soybean.',
+      mr: 'चार सेवा: धान्य स्वच्छता; शेतीमाल खरेदी व विक्री; डाळ प्रक्रिया; आणि पशुखाद्य भरडा तयार करणे. स्वच्छतेमध्ये सोयाबीन, मका, गहू, बाजरी व ज्वारीतील अनावश्यक पदार्थ वेगळे केले जातात, आणि या शेतीमालाची आम्ही खरेदी-विक्रीही करतो. डाळ प्रक्रियेत तूर, मूग, उडीद व हरभरा यांची डाळ तयार होते, जी आम्ही विकतो. मका, डाळींचा भुसा, चुरा, गहू व सोयाबीन एकत्र करून जाडसर प्रक्रिया करून भरडा तयार केला जातो.',
     },
   },
   {
     id: 'cleaning',
     question: { en: 'Do you provide grain cleaning?', mr: 'तुम्ही धान्य स्वच्छता करता का?' },
     answer: {
-      en: 'Yes. Cleaning removes dust, chaff, straw, small stones and other unwanted material from harvested grain. It is usually the first step before grading or milling, because clean grain weighs honestly and stores better.',
-      mr: 'होय. स्वच्छतेमध्ये कापणी केलेल्या धान्यातील धूळ, भुसा, काड्या, लहान दगड व इतर अनावश्यक पदार्थ वेगळे केले जातात. ग्रेडिंग किंवा दळणापूर्वीचा हा सामान्यतः पहिला टप्पा असतो, कारण स्वच्छ धान्याचे वजन योग्य राहते व साठवणूक चांगली होते.',
+      en: 'Yes. We clean soybean, maize, wheat, bajra and jowar. Cleaning removes dust, chaff, straw, small stones and other unwanted material from harvested grain, so it weighs honestly, stores better and is ready for sale or for dal processing.',
+      mr: 'होय. आम्ही सोयाबीन, मका, गहू, बाजरी व ज्वारी स्वच्छ करतो. स्वच्छतेमध्ये कापणी केलेल्या धान्यातील धूळ, भुसा, काड्या, लहान दगड व इतर अनावश्यक पदार्थ वेगळे केले जातात, त्यामुळे वजन योग्य राहते, साठवणूक चांगली होते आणि ते विक्रीसाठी किंवा डाळ प्रक्रियेसाठी तयार होते.',
     },
   },
   {
-    id: 'sorting-grading',
+    id: 'commodities',
     featured: true,
-    question: { en: 'Do you provide grain sorting and grading?', mr: 'तुम्ही धान्य प्रतवारी व ग्रेडिंग करता का?' },
+    question: { en: 'Do you buy and sell grain?', mr: 'तुम्ही धान्याची खरेदी-विक्री करता का?' },
     answer: {
-      en: 'Yes. Sorting separates grain on the basis of physical characteristics such as size, weight and shape. Grading goes further and fixes clear grades, so each grade can be sold or used on its own terms. If your buyer has given you a grade specification, bring it along and we will process to that.',
-      mr: 'होय. प्रतवारीमध्ये धान्य आकार, वजन व रचना यांसारख्या भौतिक गुणधर्मांनुसार वेगळे केले जाते. ग्रेडिंगमध्ये त्यापुढे जाऊन ठराविक प्रकार निश्चित केले जातात, जेणेकरून प्रत्येक प्रकार स्वतंत्रपणे विकता किंवा वापरता येतो. तुमच्या खरेदीदाराने ग्रेडचे वर्णन दिले असल्यास ते सोबत आणा, आम्ही त्यानुसार प्रक्रिया करू.',
+      en: 'Yes — soybean, maize, wheat, bajra and jowar. Farmers can bring their produce to the unit, and buyers can ask what is currently available. Availability changes with the season, so we do not treat every commodity as always in stock; send an enquiry with the crop and quantity and we will confirm availability and rate.',
+      mr: 'होय — सोयाबीन, मका, गहू, बाजरी व ज्वारी. शेतकरी आपला माल युनिटवर आणू शकतात आणि खरेदीदार सध्या काय उपलब्ध आहे ते विचारू शकतात. उपलब्धता हंगामानुसार बदलते, म्हणून प्रत्येक शेतीमाल सर्व वेळ उपलब्ध असल्याचे आम्ही सांगत नाही; पीक व प्रमाण यासह चौकशी पाठवा, आम्ही उपलब्धता व दर सांगू.',
     },
   },
   {
     id: 'pulses',
-    question: { en: 'Do you process pulses?', mr: 'तुम्ही कडधान्य प्रक्रिया करता का?' },
-    answer: {
-      en: 'Yes — tur, chana, moong and urad. Dal milling covers cleaning the pulse, separating the husk, splitting the grain and grading the result, adjusted for whichever pulse you bring. Tell us whether you want it whole, split, with husk or without, and we will confirm what we can do for that lot.',
-      mr: 'होय — तूर, हरभरा, मूग व उडीद. डाळ मिलमध्ये कडधान्य स्वच्छ करणे, साल वेगळी करणे, दाणे फोडणे व तयार मालाचे प्रकार करणे यांचा समावेश होतो — तुम्ही आणलेल्या कडधान्यानुसार यात बदल होतो. तुम्हाला संपूर्ण, फोडलेले, सालीसकट किंवा साल काढून हवे आहे हे सांगा, त्या मालासाठी आम्ही काय करू शकतो ते सांगू.',
-    },
-  },
-  {
-    id: 'corn-grit',
     featured: true,
-    question: { en: 'Do you supply corn grit?', mr: 'तुम्ही मक्याचा भरडा पुरवता का?' },
+    question: {
+      en: 'Which pulses do you process and sell?',
+      mr: 'तुम्ही कोणते कडधान्य प्रक्रिया करून विकता?',
+    },
     answer: {
-      en: 'Yes. Corn grit — मक्याचा भरडा — is supplied in bulk for animal feed use. It is produced from maize processed at our own unit. Send an enquiry with the quantity you need and we will confirm availability and rate.',
-      mr: 'होय. मक्याचा भरडा जनावरांच्या खाद्यासाठी मोठ्या प्रमाणात पुरवला जातो. तो आमच्याच युनिटमध्ये प्रक्रिया केलेल्या मक्यापासून तयार होतो. तुम्हाला हवे असलेले प्रमाण लिहून चौकशी पाठवा, आम्ही उपलब्धता व दर सांगू.',
+      en: 'We process tur, moong, urad and chana into dal at our unit, and sell tur dal, moong dal, urad dal and chana dal. Tell us which dal you need and the quantity, and we will confirm availability and rate.',
+      mr: 'आम्ही तूर, मूग, उडीद व हरभरा यांची आमच्याच युनिटमध्ये डाळ तयार करतो आणि तूरडाळ, मूगडाळ, उडीदडाळ व चणाडाळ विकतो. तुम्हाला कोणती डाळ हवी आहे व किती प्रमाण, हे सांगा, आम्ही उपलब्धता व दर सांगू.',
     },
   },
   {
-    id: 'spices',
-    question: { en: 'Which spice products are available?', mr: 'कोणती मसाला उत्पादने उपलब्ध आहेत?' },
+    id: 'bharada',
+    featured: true,
+    question: { en: 'What is animal feed bharada?', mr: 'पशुखाद्य भरडा म्हणजे काय?' },
     answer: {
-      en: 'We grind spice powders at our unit. The full list of varieties and pack sizes is being confirmed and will be published on the Products page. Until then, send an enquiry naming the spice and quantity you need and we will tell you what is available.',
-      mr: 'आम्ही आमच्या युनिटमध्ये मसाला पूड कुटतो. प्रकारांची व पॅकिंगच्या आकारांची संपूर्ण यादी निश्चित होत आहे आणि उत्पादने पानावर प्रकाशित केली जाईल. तोपर्यंत तुम्हाला हवा असलेला मसाला व प्रमाण लिहून चौकशी पाठवा, आम्ही काय उपलब्ध आहे ते सांगू.',
+      en: 'Bharada — पशुखाद्य भरडा — is an animal feed made by combining and coarsely processing maize, dal husk, chura, wheat and soybean. We prepare it at our unit. We do not claim it is nutritionally balanced or certified, or that it suits a particular animal; tell us what you need and we will confirm what we can supply.',
+      mr: 'भरडा — पशुखाद्य भरडा — म्हणजे मका, डाळींचा भुसा, चुरा, गहू व सोयाबीन एकत्र करून जाडसर प्रक्रिया करून तयार केलेले पशुखाद्य. तो आमच्याच युनिटमध्ये तयार होतो. तो पोषणदृष्ट्या संतुलित किंवा प्रमाणित आहे, किंवा कोणत्यातरी विशिष्ट जनावरासाठी योग्य आहे — असा आम्ही दावा करत नाही; तुम्हाला काय हवे आहे ते सांगा, आम्ही काय पुरवू शकतो ते सांगू.',
     },
   },
   {
     id: 'quantity',
     question: { en: 'What quantity can I bring?', mr: 'मी किती प्रमाण आणू शकतो?' },
     answer: {
-      en: 'Quantities are handled case by case, so the honest answer depends on your lot and the service you need. Share the crop, the approximate quantity and your preferred date through the enquiry form or on WhatsApp, and we will confirm what we can take and when.',
-      mr: 'प्रत्येक मालाची व प्रक्रियेची गरज वेगळी असते, त्यामुळे योग्य उत्तर तुमच्या मालावर व हव्या असलेल्या सेवेवर अवलंबून असते. चौकशी फॉर्मवर किंवा व्हॉट्सअ‍ॅपवर पीक, अंदाजे प्रमाण व तुमची पसंतीची तारीख कळवा, आम्ही किती माल व केव्हा घेऊ शकतो ते सांगू.',
+      en: 'Quantities are handled case by case, so the honest answer depends on your lot and what you need done. Share the crop or pulse, the approximate quantity and your preferred date through the enquiry form or on WhatsApp, and we will confirm what we can take and when.',
+      mr: 'प्रत्येक मालाची व गरजेची बाब वेगळी असते, त्यामुळे योग्य उत्तर तुमच्या मालावर व तुम्हाला काय हवे आहे यावर अवलंबून असते. चौकशी फॉर्मवर किंवा व्हॉट्सअ‍ॅपवर पीक किंवा कडधान्य, अंदाजे प्रमाण व तुमची पसंतीची तारीख कळवा, आम्ही किती माल व केव्हा घेऊ शकतो ते सांगू.',
     },
   },
   {
@@ -91,8 +90,8 @@ export const faqs: Faq[] = [
     featured: true,
     question: { en: 'How can I request a quotation?', mr: 'मी दराची चौकशी कशी करू?' },
     answer: {
-      en: 'Use the Get a Quote form and give us your name, mobile number, what you are bringing and how much. You can also call or message us on WhatsApp. We will get back to you with the details for your requirement.',
-      mr: 'दर चौकशी फॉर्म भरा आणि तुमचे नाव, मोबाइल क्रमांक, काय आणत आहात व किती प्रमाण याची माहिती द्या. तुम्ही फोन करू शकता किंवा व्हॉट्सअ‍ॅपवर संदेश पाठवू शकता. तुमच्या गरजेनुसार माहिती घेऊन आम्ही संपर्क करू.',
+      en: 'Use the Get a Quote form and give us your name, mobile number, what you need and how much. You can also call or message us on WhatsApp. We will get back to you with the details for your requirement.',
+      mr: 'दर चौकशी फॉर्म भरा आणि तुमचे नाव, मोबाइल क्रमांक, तुम्हाला काय हवे आहे व किती प्रमाण याची माहिती द्या. तुम्ही फोन करू शकता किंवा व्हॉट्सअ‍ॅपवर संदेश पाठवू शकता. तुमच्या गरजेनुसार माहिती घेऊन आम्ही संपर्क करू.',
     },
   },
   {
@@ -140,17 +139,17 @@ export const featuredFaqs = faqs.filter((f) => f.featured);
  */
 export const trustPoints: { title: L; body: L }[] = [
   {
-    title: { en: 'Processing is what we do', mr: 'प्रक्रिया हेच आमचे काम' },
+    title: { en: 'Cleaning, trading and processing', mr: 'स्वच्छता, खरेदी-विक्री व प्रक्रिया' },
     body: {
-      en: 'Cleaning, sorting, grading and dal milling are the business — not a side activity. Your material goes through a unit built and run for that purpose.',
-      mr: 'स्वच्छता, प्रतवारी, ग्रेडिंग व डाळ मिल हाच आमचा व्यवसाय आहे — ही उपकाम नाही. तुमचा माल याच कामासाठी उभारलेल्या व चालवल्या जाणाऱ्या युनिटमधून जातो.',
+      en: 'Grain cleaning, commodity buying and selling, dal processing and animal feed preparation are the business — not a side activity. Your material goes through a unit built and run for that purpose.',
+      mr: 'धान्य स्वच्छता, शेतीमालाची खरेदी-विक्री, डाळ प्रक्रिया व पशुखाद्य तयार करणे हाच आमचा व्यवसाय आहे — ही उपकाम नाही. तुमचा माल याच कामासाठी उभारलेल्या व चालवल्या जाणाऱ्या युनिटमधून जातो.',
     },
   },
   {
     title: { en: 'Straight answers on quantity and rate', mr: 'प्रमाण व दराबाबत स्पष्ट उत्तर' },
     body: {
-      en: 'Tell us the crop and the approximate quantity and you get a clear answer on what we can take, when, and at what rate — before you load the vehicle.',
-      mr: 'पीक व अंदाजे प्रमाण सांगा आणि माल वाहनात भरण्यापूर्वीच किती घेऊ, केव्हा घेऊ व दर काय — याचे स्पष्ट उत्तर मिळेल.',
+      en: 'Tell us the crop or product and the approximate quantity and you get a clear answer on what we can take, when, and at what rate — before you load the vehicle.',
+      mr: 'पीक किंवा उत्पादन व अंदाजे प्रमाण सांगा आणि माल वाहनात भरण्यापूर्वीच किती घेऊ, केव्हा घेऊ व दर काय — याचे स्पष्ट उत्तर मिळेल.',
     },
   },
   {
@@ -168,10 +167,10 @@ export const trustPoints: { title: L; body: L }[] = [
     },
   },
   {
-    title: { en: 'Cleaning, grading and milling in one place', mr: 'स्वच्छता, ग्रेडिंग व दळण एकाच ठिकाणी' },
+    title: { en: 'Grain, dal and feed in one place', mr: 'धान्य, डाळ व खाद्य एकाच ठिकाणी' },
     body: {
-      en: 'You do not have to move the same lot between three different places. Bring the material once and take it away ready for sale or use.',
-      mr: 'एकाच मालाला तीन वेगवेगळ्या ठिकाणी नेण्याची गरज नाही. माल एकदाच आणा आणि विक्रीसाठी किंवा वापरासाठी तयार घेऊन जा.',
+      en: 'You do not have to move the same lot between different places. Bring grain for cleaning, pulses for dal, or ask about buying and selling — and collect dal or bharada from the same unit.',
+      mr: 'एकाच मालाला वेगवेगळ्या ठिकाणी नेण्याची गरज नाही. स्वच्छतेसाठी धान्य, डाळीसाठी कडधान्य आणा, किंवा खरेदी-विक्रीबद्दल विचारा — आणि त्याच युनिटमधून डाळ किंवा भरडा घेऊन जा.',
     },
   },
   {

@@ -64,9 +64,13 @@ photography or with a picture of another plant.
 
 | Slot | What is needed | Where it shows |
 | --- | --- | --- |
-| `service-spice-grinding` | Spice grinding, at this unit | Service card + service page |
-| `product-corn-grit` | Corn grit, close-up and packed | Products page |
-| `product-spice-powders` | Spice powders | Products page |
+| `product-animal-feed-bharada` | The finished bharada, close-up and in its sack, at this unit | Product section on the Products page |
+
+The four dal product cards reuse the genuine pulse photographs already in the
+gallery (`grain-quality-closeup`, `pulse-green-in-hand`, `pulse-grain-dark`,
+`bulk-processed-grain`). Those photographs are captioned by colour and form
+only. No photograph has been labelled as tur, moong, urad or chana dal, because
+the business has not confirmed which pulse each frame shows.
 
 ### Service cards: what was assigned, and how confident to be
 
@@ -77,21 +81,21 @@ the job it does. Swap any of them the moment the business confirms otherwise.
 | Service | Image | Basis |
 | --- | --- | --- |
 | Grain Cleaning | `machinery-detail.jpeg` | Blower plus cyclone separator — the dust and chaff extraction stage. The business's own signboard banner advertises a "गहू फिल्टर मशीन" for धान्य स्वच्छता, which this matches. |
-| Grain Sorting | `machinery-processing-unit.jpeg` | The machine discharging through separate outlets into individual sacks — a lot divided into streams. |
-| Grain Grading | `processed-grain-varieties.jpeg` | Seven sacks of clean grain and pulses, each lot kept separate. Shows the separated output rather than the machine. |
-| Dal Milling | `bulk-processed-grain.jpeg` | Split pulses in bulk in a sack. This is the processed output, not the mill itself. |
-| Spice Grinding | — (still pending) | **No photograph or clip in the supplied set shows spices at all.** Nothing is assigned here rather than borrowing an image of a different process. |
+| Agricultural Commodity Buying & Selling | `processed-grain-varieties.jpeg` | Seven sacks of clean grain and pulses, each lot kept separate. Shows material handled by the business, not a buying or selling transaction. |
+| Dal Processing | `bulk-processed-grain.jpeg` | Split pulses in bulk in a sack. This is the processed output, not the mill itself. |
+| Animal Feed Bharada Preparation | `machinery-with-output-bags.jpg` | Machine outlets feeding sacks below. Used as a picture of the unit's machinery, not as evidence that bharada is shown. |
 
-`machinery-processing-unit.jpeg` now appears both in the Services page's "Inside
-the unit" band and on the Sorting card. If that reads as repetitive, the band is
-the one to change.
+`machinery-processing-unit.jpeg` appears in the Services page's "Inside the
+unit" band. Sorting and grading are no longer offered as separate services, so
+their old card assignments were removed.
 
 ### Closing the remaining slots
 
-- One photograph per outstanding service, of the specific machine doing that job,
-  or confirmation of which machine does which operation.
-- Spice grinding and corn grit stay empty until a real picture of each exists —
-  there is currently no evidence either is produced at this unit.
+- One photograph of the finished animal feed bharada, close-up and packed.
+- Photographs that tie each processing service to the specific machine doing
+  that job, or confirmation of which machine does which operation.
+- If the business confirms which pulse each existing close-up shows, the dal
+  product cards can be relabelled with confidence.
 
 ## Notes on what was supplied
 

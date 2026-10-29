@@ -33,8 +33,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const description =
     lang === 'en'
-      ? 'Answers to common questions about grain cleaning, sorting, grading and dal milling, the crops we process, quantities, and how to request a quote from Om Agrosphere.'
-      : 'धान्य स्वच्छता, प्रतवारी, ग्रेडिंग व डाळ मिल, आम्ही प्रक्रिया करत असलेली पिके, प्रमाण आणि दर चौकशी यांविषयीच्या नेहमीच्या प्रश्नांची उत्तरे.';
+      ? 'Answers to common questions about grain cleaning, commodity buying and selling, dal processing and animal feed bharada, the crops and pulses we handle, quantities, and how to request a quote from Om Agrosphere.'
+      : 'धान्य स्वच्छता, शेतीमाल खरेदी-विक्री, डाळ प्रक्रिया व पशुखाद्य भरडा, आम्ही हाताळत असलेली पिके व कडधान्ये, प्रमाण आणि दर चौकशी यांविषयीच्या नेहमीच्या प्रश्नांची उत्तरे.';
 
   return {
     title,

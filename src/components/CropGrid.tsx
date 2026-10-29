@@ -6,12 +6,12 @@ import { WheatIcon } from '@/components/icons';
  * Supported crops (SRS §7.1.4).
  *
  * A hairline grid rather than a row of floating cards — a farmer scanning this
- * needs to find their crop in under a second, and seven boxed cards made the
+ * needs to find their crop in under a second, and a row of boxed cards made the
  * list harder to read than the names themselves.
  */
 export function CropGrid({ lang }: { lang: Lang }) {
   return (
-    <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-sm bg-ink/10 ring-1 ring-ink/10 sm:grid-cols-3 lg:grid-cols-7">
+    <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-sm bg-ink/10 ring-1 ring-ink/10 sm:grid-cols-3 lg:grid-cols-9">
       {crops.map((crop) => (
         <li
           key={crop.id}

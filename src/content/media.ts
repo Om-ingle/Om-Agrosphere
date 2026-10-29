@@ -11,8 +11,8 @@ import type { L } from '@/lib/i18n';
  *
  *   • a PENDING slot — `src` is `null`, and the <Photo> component renders a
  *     clearly labelled "photograph to be added" panel. Pending slots are named
- *     after the *need* (service-spice-grinding, product-corn-grit, …) rather
- *     than a file, because no file exists yet.
+ *     after the *need* (product-animal-feed-bharada, …) rather than a file,
+ *     because no file exists yet.
  *
  * A pending slot is never filled with stock imagery or with a photograph of
  * somebody else's plant. Only the business can close a pending slot, by
@@ -65,22 +65,6 @@ export const photos = {
       mr: 'स्वच्छता रांगेतील ब्लोअर व सायक्लोन विभाजक, शंकूच्या वर बांधलेले पोते',
     },
   },
-  'service-sorting': {
-    src: '/images/machinery-processing-unit.jpeg',
-    subject: { en: 'Discharging into separate sacks', mr: 'वेगवेगळ्या पोत्यांत माल सोडणे' },
-    alt: {
-      en: 'The processing machine discharging grain through separate outlets into individual sacks',
-      mr: 'प्रक्रिया यंत्र, वेगवेगळ्या आउटलेटमधून स्वतंत्र पोत्यांत धान्य सोडताना',
-    },
-  },
-  'service-grading': {
-    src: '/images/processed-grain-varieties.jpeg',
-    subject: { en: 'Separated lots of clean grain', mr: 'वेगळे केलेले स्वच्छ धान्याचे माल' },
-    alt: {
-      en: 'Seven open sacks of clean grain and pulses, each lot kept separate after processing',
-      mr: 'स्वच्छ धान्य व डाळीची सात उघडी पोती, प्रक्रियेनंतर प्रत्येक माल वेगळा ठेवलेला',
-    },
-  },
   'service-dal-milling': {
     src: '/images/bulk-processed-grain.jpeg',
     subject: { en: 'Split pulses in bulk', mr: 'मोठ्या प्रमाणातील फुटलेली डाळ' },
@@ -89,30 +73,14 @@ export const photos = {
       mr: 'युनिटमध्ये उघड्या पोत्यात भरलेली फुटलेली डाळ',
     },
   },
-  // No spice photograph or clip exists in the supplied media, so this stays on
-  // the pending panel rather than borrowing an image of something else.
-  'service-spice-grinding': {
+  // No photograph of the finished bharada exists in the supplied media, so this
+  // stays on the pending panel rather than borrowing an image of something else.
+  'product-animal-feed-bharada': {
     src: null,
-    subject: { en: 'Spice grinding at the unit', mr: 'युनिटमध्ये मसाला दळताना' },
+    subject: { en: 'Animal feed bharada', mr: 'पशुखाद्य भरडा' },
     alt: {
-      en: 'Whole spices being ground into powder at the Om Agrosphere unit',
-      mr: 'ओम अ‍ॅग्रोस्फिअर युनिटमध्ये संपूर्ण मसाले पूड करून दळताना',
-    },
-  },
-  'product-corn-grit': {
-    src: null,
-    subject: { en: 'Corn grit, close-up and packed', mr: 'मक्याचा भरडा — जवळून व पॅकिंगमध्ये' },
-    alt: {
-      en: 'Corn grit (makyacha bharda) supplied by Om Agrosphere for animal feed',
-      mr: 'ओम अ‍ॅग्रोस्फिअरकडून जनावरांच्या खाद्यासाठी पुरवला जाणारा मक्याचा भरडा',
-    },
-  },
-  'product-spice-powders': {
-    src: null,
-    subject: { en: 'Spice powder products', mr: 'मसाला पूड उत्पादने' },
-    alt: {
-      en: 'Spice powders supplied by Om Agrosphere',
-      mr: 'ओम अ‍ॅग्रोस्फिअरकडून पुरवली जाणारी मसाला पूड',
+      en: 'Animal feed bharada prepared at the Om Agrosphere unit',
+      mr: 'ओम अ‍ॅग्रोस्फिअर युनिटमध्ये तयार केलेला पशुखाद्य भरडा',
     },
   },
 

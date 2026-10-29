@@ -178,7 +178,7 @@ export function InquiryForm({ lang, source, compact = false }: Props) {
 
   /**
    * Preselect the product when the visitor arrived from a product card
-   * (`/quote?interest=Corn%20Grit`). Read after mount rather than with
+   * (`/quote?interest=Tur%20Dal`). Read after mount rather than with
    * useSearchParams, which would push every page out of static rendering.
    */
   useEffect(() => {

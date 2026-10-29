@@ -81,8 +81,8 @@ export default async function AboutPage({ params }: PageProps) {
           mr: 'या भागात पिकणाऱ्या पिकांभोवती उभारलेले प्रक्रिया युनिट',
         }}
         intro={{
-          en: 'Om Agrosphere cleans, sorts, grades and mills agricultural produce on the Dhule–Solapur Highway. This page explains what we do, how we work, and where we are.',
-          mr: 'ओम अॅग्रोस्फिअर धुळे–सोलापूर महामार्गावर शेतमालाची स्वच्छता, प्रतवारी, ग्रेडिंग व दळण करते. हे पान आम्ही काय करतो, कसे काम करतो आणि आम्ही कुठे आहोत हे सांगते.',
+          en: 'Om Agrosphere cleans and trades agricultural commodities, processes pulses into dal, and prepares animal feed bharada on the Dhule–Solapur Highway. This page explains what we do, how we work, and where we are.',
+          mr: 'ओम अॅग्रोस्फिअर धुळे–सोलापूर महामार्गावर शेतमाल स्वच्छ करते, त्याची खरेदी-विक्री करते, कडधान्यांवर प्रक्रिया करून डाळ तयार करते आणि पशुखाद्य भरडा तयार करते. हे पान आम्ही काय करतो, कसे काम करतो आणि आम्ही कुठे आहोत हे सांगते.',
         }}
         trail={trail}
       />
@@ -102,8 +102,8 @@ export default async function AboutPage({ params }: PageProps) {
               <p>
                 {pick(
                   {
-                    en: 'Om Agrosphere is an agricultural processing business on the Dhule–Solapur Highway at Diwashi, Kasabkheda, in Gangapur taluka, Chhatrapati Sambhajinagar district. It exists to do one thing well: take agricultural produce that arrives mixed, dirty or unsorted, and put it through the processes that make it more useful and more sellable.',
-                    mr: 'ओम अॅग्रोस्फिअर हा धुळे–सोलापूर महामार्गावर, दिवाशी, कसबखेडा येथे, गंगापूर तालुक्यात, छत्रपती संभाजीनगर जिल्ह्यातील कृषी प्रक्रिया व्यवसाय आहे. त्याचा एकच उद्देश आहे: मिसळलेला, धूळयुक्त किंवा वेगळा न केलेला शेतमाल घेऊन, त्याला अधिक उपयुक्त व विक्रीयोग्य बनवणाऱ्या प्रक्रियांतून घालणे.',
+                    en: 'Om Agrosphere is an agricultural processing business on the Dhule–Solapur Highway at Diwashi, Kasabkheda, in Gangapur taluka, Chhatrapati Sambhajinagar district. It exists to do one thing well: take agricultural produce that arrives mixed, dirty or unprocessed, and put it through the processes that make it more useful and more sellable.',
+                    mr: 'ओम अॅग्रोस्फिअर हा धुळे–सोलापूर महामार्गावर, दिवाशी, कसबखेडा येथे, गंगापूर तालुक्यात, छत्रपती संभाजीनगर जिल्ह्यातील कृषी प्रक्रिया व्यवसाय आहे. त्याचा एकच उद्देश आहे: मिसळलेला, धूळयुक्त किंवा प्रक्रिया न केलेला शेतमाल घेऊन, त्याला अधिक उपयुक्त व विक्रीयोग्य बनवणाऱ्या प्रक्रियांतून घालणे.',
                   },
                   lang,
                 )}
@@ -120,8 +120,8 @@ export default async function AboutPage({ params }: PageProps) {
               <p>
                 {pick(
                   {
-                    en: 'The services are grain cleaning, grain sorting, grain grading, dal milling, and spice grinding and packaging. The crops we work with are wheat, jowar, bajra, tur, chana, moong and urad. Alongside processing other people’s material, we supply corn grit for animal feed and spice powders ground at our own unit.',
-                    mr: 'सेवा आहेत — धान्य स्वच्छता, धान्य प्रतवारी, धान्य ग्रेडिंग, डाळ मिल आणि मसाला दळण व पॅकिंग. आम्ही काम करतो ती पिके — गहू, ज्वारी, बाजरी, तूर, हरभरा, मूग व उडीद. इतरांच्या मालावर प्रक्रिया करण्यासोबतच, आम्ही जनावरांच्या खाद्यासाठी मक्याचा भरडा आणि आमच्याच युनिटमध्ये कुटलेली मसाला पूड पुरवतो.',
+                    en: 'The services are grain cleaning; agricultural commodity buying and selling; dal processing; and animal feed bharada preparation. We clean and trade soybean, maize, wheat, bajra and jowar, process tur, moong, urad and chana into dal, and prepare animal feed bharada from maize, dal husk, chura, wheat and soybean. Alongside processing other people’s material, we sell dal and bharada from our own unit.',
+                    mr: 'सेवा आहेत — धान्य स्वच्छता; शेतीमाल खरेदी व विक्री; डाळ प्रक्रिया; आणि पशुखाद्य भरडा तयार करणे. आम्ही सोयाबीन, मका, गहू, बाजरी व ज्वारी स्वच्छ करतो व त्यांची खरेदी-विक्री करतो, तूर, मूग, उडीद व हरभरा यांची डाळ तयार करतो, आणि मका, डाळींचा भुसा, चुरा, गहू व सोयाबीनपासून पशुखाद्य भरडा तयार करतो. इतरांच्या मालावर प्रक्रिया करण्यासोबतच, आम्ही आमच्याच युनिटमधून डाळ व भरडा विकतो.',
                   },
                   lang,
                 )}
@@ -195,8 +195,8 @@ export default async function AboutPage({ params }: PageProps) {
             <p className="mt-4 text-base leading-relaxed text-ink-soft">
               {pick(
                 {
-                  en: 'That produce grown in this region should not lose value simply because it left the field unsorted, uncleaned or unmilled. Processing done close to where the crop is grown keeps more of that value with the people who grew it, and gives buyers material they can actually work with.',
-                  mr: 'या भागात पिकलेला शेतमाल फक्त स्वच्छ न केलेला, वेगळा न केलेला किंवा न दळलेला शेतातून निघाला म्हणून त्याचे मूल्य गमावू नये. पीक पिकते तिथ्याच्या जवळ प्रक्रिया झाल्यास ते मूल्य पिकवणाऱ्यांकडेच जास्त प्रमाणात राहते आणि खरेदीदारांना खरोखर वापरता येईल असा माल मिळतो.',
+                  en: 'That produce grown in this region should not lose value simply because it left the field uncleaned or unprocessed. Cleaning, dal processing and feed preparation done close to where the crop is grown keeps more of that value with the people who grew it, and gives buyers material they can actually work with.',
+                  mr: 'या भागात पिकलेला शेतमाल फक्त स्वच्छ न केलेला किंवा प्रक्रिया न केलेला शेतातून निघाला म्हणून त्याचे मूल्य गमावू नये. पीक पिकते तिथ्याच्या जवळ स्वच्छता, डाळ प्रक्रिया व खाद्य तयारी झाल्यास ते मूल्य पिकवणाऱ्यांकडेच जास्त प्रमाणात राहते आणि खरेदीदारांना खरोखर वापरता येईल असा माल मिळतो.',
                 },
                 lang,
               )}
@@ -210,8 +210,8 @@ export default async function AboutPage({ params }: PageProps) {
             <ul className="mt-4 flex flex-col gap-3 text-base leading-relaxed text-ink-soft">
               {[
                 {
-                  en: 'Run cleaning, sorting, grading and milling to a standard a buyer can rely on lot after lot.',
-                  mr: 'स्वच्छता, प्रतवारी, ग्रेडिंग व दळण अशा दर्जाने करणे की खरेदीदार प्रत्येक मालावर विसंबू शकेल.',
+                  en: 'Run grain cleaning, commodity trading, dal processing and animal feed preparation to a standard a customer can rely on lot after lot.',
+                  mr: 'धान्य स्वच्छता, शेतीमाल खरेदी-विक्री, डाळ प्रक्रिया व पशुखाद्य तयार करणे अशा दर्जाने करणे की ग्राहक प्रत्येक मालावर विसंबू शकेल.',
                 },
                 {
                   en: 'Quote honestly on quantity and rate, and say no when we cannot take a lot rather than waste a farmer’s trip.',

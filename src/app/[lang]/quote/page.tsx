@@ -85,8 +85,8 @@ export default async function QuotePage({ params }: PageProps) {
           mr: 'तुमच्याकडे काय आहे ते सांगा, आम्ही काय करू शकतो ते सांगू',
         }}
         intro={{
-          en: 'Fill this in once and you have given us everything we need to answer you properly — the crop or product, how much of it, and when you want it processed.',
-          mr: 'हे एकदा भरा आणि तुम्हाला योग्य उत्तर देण्यासाठी लागणारी सर्व माहिती आम्हाला मिळेल — पीक किंवा उत्पादन, किती प्रमाण, आणि कधी प्रक्रिया हवी आहे.',
+          en: 'Fill this in once and you have given us everything we need to answer you properly — the crop or product, how much of it, and when you need it.',
+          mr: 'हे एकदा भरा आणि तुम्हाला योग्य उत्तर देण्यासाठी लागणारी सर्व माहिती आम्हाला मिळेल — पीक किंवा उत्पादन, किती प्रमाण, आणि ते कधी हवे आहे.',
         }}
         trail={trail}
       />
@@ -252,12 +252,12 @@ export default async function QuotePage({ params }: PageProps) {
                   mr: 'पीक किंवा उत्पादन, आणि अंदाजे किती प्रमाण आहे.',
                 },
                 {
-                  en: 'Whether you want it cleaned, sorted, graded, milled, or a combination.',
-                  mr: 'स्वच्छता, प्रतवारी, ग्रेडिंग, दळण — यापैकी काय हवे, किंवा यांची एकत्रित प्रक्रिया.',
+                  en: 'Whether you need cleaning, dal processing or animal feed bharada — or want to buy or sell a commodity.',
+                  mr: 'स्वच्छता, डाळ प्रक्रिया किंवा पशुखाद्य भरडा हवा आहे — की शेतीमाल विकायचा किंवा खरेदी करायचा आहे.',
                 },
                 {
-                  en: 'If your buyer has given a grade specification, describe it in the message box.',
-                  mr: 'खरेदीदाराने ग्रेडचे वर्णन दिले असल्यास ते संदेशात लिहा.',
+                  en: 'If you are buying, tell us the product and quantity you need. If you are selling, tell us where the material is coming from.',
+                  mr: 'खरेदी करत असाल तर हवे असलेले उत्पादन व प्रमाण सांगा. विकत असाल तर माल कुठून येत आहे ते सांगा.',
                 },
                 {
                   en: 'When you would like it done, so we can tell you honestly whether that date works.',

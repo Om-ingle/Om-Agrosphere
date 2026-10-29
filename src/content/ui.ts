@@ -48,7 +48,10 @@ export const ui = {
   // ── Section headings reused across pages ──────────────────────────────────
   whyUs: { en: 'Why Om Agrosphere', mr: 'ओम अ‍ॅग्रोस्फिअर का' } satisfies L,
   coreServices: { en: 'What we do', mr: 'आम्ही काय करतो' } satisfies L,
-  supportedCrops: { en: 'Crops we process', mr: 'आम्ही प्रक्रिया करत असलेली पिके' } satisfies L,
+  supportedCrops: {
+    en: 'Crops and pulses we handle',
+    mr: 'आम्ही हाताळत असलेली पिके व कडधान्ये',
+  } satisfies L,
   featuredProducts: { en: 'Our products', mr: 'आमची उत्पादने' } satisfies L,
   insideFacility: { en: 'Inside our processing unit', mr: 'आमच्या प्रक्रिया युनिटमध्ये' } satisfies L,
   findUs: { en: 'Where to find us', mr: 'आम्हाला कुठे भेटावे' } satisfies L,

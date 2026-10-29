@@ -23,13 +23,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title =
     lang === 'en'
-      ? 'Services — Grain Cleaning, Sorting, Grading, Dal Milling & Spice Grinding'
-      : 'सेवा — धान्य स्वच्छता, प्रतवारी, ग्रेडिंग, डाळ मिल व मसाला दळण';
+      ? 'Services — Grain Cleaning, Commodity Trading, Dal Processing & Animal Feed'
+      : 'सेवा — धान्य स्वच्छता, शेतीमाल खरेदी-विक्री, डाळ प्रक्रिया व पशुखाद्य';
 
   const description =
     lang === 'en'
-      ? 'Grain cleaning, grain sorting, grain grading, dal milling and spice grinding for wheat, jowar, bajra, tur, chana, moong and urad on the Dhule–Solapur Highway at Gangapur, Maharashtra. Send an enquiry for your lot.'
-      : 'धुळे–सोलापूर महामार्गावर, गंगापूर, महाराष्ट्र येथे गहू, ज्वारी, बाजरी, तूर, हरभरा, मूग व उडीद यांच्यासाठी धान्य स्वच्छता, प्रतवारी, ग्रेडिंग, डाळ मिल व मसाला दळण. तुमच्या मालासाठी चौकशी पाठवा.';
+      ? 'Grain cleaning and agricultural commodity buying and selling for soybean, maize, wheat, bajra and jowar, dal processing for tur, moong, urad and chana, and animal feed bharada preparation on the Dhule–Solapur Highway at Gangapur, Maharashtra.'
+      : 'धुळे–सोलापूर महामार्गावर, गंगापूर, महाराष्ट्र येथे सोयाबीन, मका, गहू, बाजरी व ज्वारीसाठी धान्य स्वच्छता व शेतीमाल खरेदी-विक्री, तूर, मूग, उडीद व हरभऱ्यासाठी डाळ प्रक्रिया, आणि पशुखाद्य भरडा तयार करणे.';
 
   return {
     title,
@@ -68,26 +68,26 @@ export default async function ServicesPage({ params }: PageProps) {
         lang={lang}
         eyebrow={{ en: 'Services', mr: 'सेवा' }}
         title={{
-          en: 'Five processing services, explained plainly',
-          mr: 'पाच प्रक्रिया सेवा, स्पष्ट शब्दांत',
+          en: 'Four services, explained plainly',
+          mr: 'चार सेवा, स्पष्ट शब्दांत',
         }}
         intro={{
-          en: 'Cleaning, sorting, grading, dal milling and spice grinding. Most lots go through more than one of them before they leave. Open any service to see what it does and what it changes about your material.',
-          mr: 'स्वच्छता, प्रतवारी, ग्रेडिंग, डाळ मिल व मसाला दळण. बहुतेक माल येथून बाहेर पडण्यापूर्वी यापैकी एकापेक्षा जास्त प्रक्रियांतून जातो. प्रत्येक सेवा उघडून पहा — ती काय करते आणि तुमच्या मालात काय बदल घडवते.',
+          en: 'Grain cleaning, agricultural commodity buying and selling, dal processing, and animal feed bharada preparation. Open any service to see what it does and what changes about your material or requirement.',
+          mr: 'धान्य स्वच्छता, शेतीमाल खरेदी-विक्री, डाळ प्रक्रिया व पशुखाद्य भरडा तयार करणे. प्रत्येक सेवा उघडून पहा — ती काय करते आणि तुमच्या मालात किंवा गरजेत काय बदल घडवते.',
         }}
         trail={trail}
       />
 
       {/* Service cards — the index. Full explanations live on each service page. */}
       <Section tone="paper">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2">
           {services.map((service) => (
             <ServiceCard key={service.slug} service={service} lang={lang} />
           ))}
         </div>
       </Section>
 
-      {/* The unit itself — what the five services above actually run on. */}
+      {/* The unit itself — what the four services above actually run on. */}
       <Section tone="dark" divider>
         <SectionHeading
           eyebrow={{ en: 'Inside the unit', mr: 'युनिटच्या आत' }}
@@ -144,8 +144,8 @@ export default async function ServicesPage({ params }: PageProps) {
           eyebrow={{ en: 'Crops', mr: 'पिके' }}
           title={ui.supportedCrops}
           intro={{
-            en: 'These seven crops are the ones we can confirm. If yours is not listed, ask anyway — we will give you a straight answer.',
-            mr: 'ही सात पिके आम्ही निश्चितपणे सांगू शकतो. तुमचे पीक यात नसल्यास तरी विचारा — आम्ही स्पष्ट उत्तर देऊ.',
+            en: 'These nine crops and pulses are the ones we can confirm. If yours is not listed, ask anyway — we will give you a straight answer.',
+            mr: 'ही नऊ पिके व कडधान्ये आम्ही निश्चितपणे सांगू शकतो. तुमचे पीक किंवा कडधान्य यात नसल्यास तरी विचारा — आम्ही स्पष्ट उत्तर देऊ.',
           }}
           lang={lang}
         />
@@ -171,8 +171,8 @@ export default async function ServicesPage({ params }: PageProps) {
                 {
                   title: { en: 'Tell us what you have', mr: 'तुमच्याकडे काय आहे ते सांगा' },
                   body: {
-                    en: 'Call, message on WhatsApp, or send the enquiry form. Give us the crop, the approximate quantity and your preferred date.',
-                    mr: 'फोन करा, व्हाट्सअ‍ॅपवर संदेश पाठवा, किंवा चौकशी फॉर्म पाठवा. पीक, अंदाजे प्रमाण व तुमची पसंतीची तारीख सांगा.',
+                    en: 'Call, message on WhatsApp, or send the enquiry form. Give us the crop or pulse, the approximate quantity, and whether you want processing, to buy, or to sell.',
+                    mr: 'फोन करा, व्हाट्सअ‍ॅपवर संदेश पाठवा, किंवा चौकशी फॉर्म पाठवा. पीक किंवा कडधान्य, अंदाजे प्रमाण, आणि तुम्हाला प्रक्रिया हवी आहे, खरेदी करायची आहे की विकायची आहे हे सांगा.',
                   },
                 },
                 {
@@ -192,8 +192,8 @@ export default async function ServicesPage({ params }: PageProps) {
                 {
                   title: { en: 'Collect it processed', mr: 'प्रक्रिया झालेला माल घ्या' },
                   body: {
-                    en: 'Your material goes through the agreed process and is graded as discussed. Ask for the material to be packed separately if you need the grades kept apart.',
-                    mr: 'तुमचा माल ठरलेल्या प्रक्रियेतून जातो व ठरल्याप्रमाणे प्रकारांत विभागला जातो. प्रकार वेगवेगळे हवे असल्यास वेगवेगळे पॅक करायला सांगा.',
+                    en: 'Your material goes through the agreed process and is prepared for collection. Tell us before we start if you need anything kept separately.',
+                    mr: 'तुमचा माल ठरलेल्या प्रक्रियेतून जातो व घेऊन जाण्यासाठी तयार केला जातो. काही वेगळे ठेवायचे असल्यास सुरुवातीपूर्वी सांगा.',
                   },
                 },
               ].map((step, index) => (
@@ -226,12 +226,12 @@ export default async function ServicesPage({ params }: PageProps) {
                     mr: 'निघण्यापूर्वी अंदाजे प्रमाण सांगा.',
                   },
                   {
-                    en: 'Bring any grade specification from your buyer.',
-                    mr: 'खरेदीदाराने दिलेले ग्रेडचे वर्णन असल्यास सोबत आणा.',
+                    en: 'If you are buying, tell us the product and the quantity you need.',
+                    mr: 'खरेदी करत असाल तर हवे असलेले उत्पादन व प्रमाण सांगा.',
                   },
                   {
-                    en: 'Know how you want the finished material separated.',
-                    mr: 'तयार माल कसा वेगळा हवा आहे ते ठरवून या.',
+                    en: 'If you are selling, tell us the crop, the quantity and where it is coming from.',
+                    mr: 'विकत असाल तर पीक, प्रमाण व माल कुठून येत आहे हे सांगा.',
                   },
                   {
                     en: 'Call ahead for loaded vehicles so we can arrange unloading space.',

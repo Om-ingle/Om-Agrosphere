@@ -160,13 +160,13 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                   ))}
                 </ul>
               ) : (
-                /* Spice grinding is about spices, not the listed crops, so there
-                   are no crop chips to show — say what it covers instead. */
+                /* Every current service lists the crops or pulses it covers;
+                   this fallback keeps the page sensible if that changes. */
                 <p className="mt-4 text-sm leading-relaxed text-ink-soft">
                   {pick(
                     {
-                      en: 'Whole spices, ground to order, or finished spice powder supplied in bulk or retail packs. Which varieties are available depends on the season — ask us what we have in hand.',
-                      mr: 'संपूर्ण मसाले — मागणीनुसार दळून, किंवा तयार मसाला पूड घाऊक अथवा किरकोळ पॅकमध्ये. कोणते प्रकार उपलब्ध आहेत हे हंगामावर अवलंबून असते — आमच्याकडे काय आहे ते विचारा.',
+                      en: 'Tell us what you need and we will confirm what we can supply. Availability and rate are confirmed on enquiry.',
+                      mr: 'तुम्हाला काय हवे आहे ते सांगा, आम्ही काय पुरवू शकतो ते सांगू. उपलब्धता व दर चौकशीवरून निश्चित होतात.',
                     },
                     lang,
                   )}
@@ -270,13 +270,15 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 /** Map a service's crop ids to the enquiry form's interest values. */
 function cropInterestValue(cropIds: string[]): string {
   const names: Record<string, string> = {
+    soybean: 'Soybean',
+    maize: 'Maize',
     wheat: 'Wheat',
     jowar: 'Jowar',
     bajra: 'Bajra',
-    tur: 'Tur',
-    chana: 'Chana',
-    moong: 'Moong',
-    urad: 'Urad',
+    tur: 'Tur Dal',
+    chana: 'Chana Dal',
+    moong: 'Moong Dal',
+    urad: 'Urad Dal',
   };
   const first = cropIds[0];
   return first ? (names[first] ?? '') : '';

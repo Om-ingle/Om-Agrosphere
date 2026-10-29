@@ -18,15 +18,16 @@ export const UNITS = ['kg', 'quintal', 'ton'] as const;
 
 /** Crop/product interests, matching `inquiryInterests` in content/products.ts. */
 export const INTERESTS = [
+  'Tur Dal',
+  'Moong Dal',
+  'Urad Dal',
+  'Chana Dal',
+  'Animal Feed Bharada',
   'Wheat',
-  'Jowar',
+  'Maize',
+  'Soybean',
   'Bajra',
-  'Tur',
-  'Chana',
-  'Moong',
-  'Urad',
-  'Corn Grit',
-  'Spices',
+  'Jowar',
 ] as const;
 
 /**

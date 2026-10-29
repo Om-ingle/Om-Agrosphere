@@ -31,8 +31,8 @@ export const site = {
 
   /** One-line description used for metadata and structured data. */
   shortDescription: {
-    en: 'Manufacturer and supplier of corn grit for animal feed and ground spice powders, and a grain processing unit offering cleaning, sorting, grading and dal milling on the Dhule–Solapur Highway, Gangapur, Maharashtra.',
-    mr: 'जनावरांच्या खाद्यासाठी मक्याचा भरडा व मसाला पूड तयार करणारे व पुरवणारे, तसेच धुळे–सोलापूर महामार्गावर, गंगापूर, महाराष्ट्र येथे धान्य स्वच्छता, प्रतवारी, ग्रेडिंग व डाळ मिल सेवा देणारे कृषी प्रक्रिया युनिट.',
+    en: 'A grain cleaning and agricultural commodity trading unit on the Dhule–Solapur Highway, Gangapur, Maharashtra, also processing tur, moong, urad and chana into dal and preparing animal feed bharada.',
+    mr: 'धुळे–सोलापूर महामार्गावर, गंगापूर, महाराष्ट्र येथे धान्य स्वच्छता व शेतीमाल खरेदी-विक्री करणारे, तसेच तूर, मूग, उडीद व हरभरा यांची डाळ तयार करणारे व पशुखाद्य भरडा तयार करणारे कृषी प्रक्रिया युनिट.',
   } satisfies L,
 
   email: 'omagrosphere@gmail.com',

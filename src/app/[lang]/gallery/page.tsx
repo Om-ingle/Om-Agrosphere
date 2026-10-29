@@ -82,8 +82,8 @@ export default async function GalleryPage({ params }: PageProps) {
           <p className="mt-4 text-base leading-relaxed text-ink-soft">
             {pick(
               {
-                en: `${totalPhotos} photographs and ${totalVideos} clips are published above, all of them our own. A few frames are still outstanding, and we would rather name them than pad the page. We are waiting on photographs that tie each of the five services to the particular machine that performs it — a machine will not be captioned with a job until the business confirms which one does what. Corn grit and spice powders will get their own pictures once they are taken.`,
-                mr: `वर ${totalPhotos} छायाचित्रे व ${totalVideos} व्हिडिओ प्रकाशित केले आहेत, सर्व आमचेच. काही छायाचित्रे अजून बाकी आहेत, आणि पान भरण्यापेक्षा ती नावाने सांगणे आम्हाला योग्य वाटते. प्रत्येक सेवेची ती सेवा करणाऱ्या विशिष्ट यंत्राशी जोडणारी छायाचित्रे अजून हवी आहेत — कोणते यंत्र कोणते काम करते हे व्यवसायाने निश्चित करेपर्यंत यंत्रावर कामाचे नाव लावले जाणार नाही. मक्याचा भरडा व मसाला पूड यांची छायाचित्रे घेतल्यावर लावली जातील.`,
+                en: `${totalPhotos} photographs and ${totalVideos} clips are published above, all of them our own. A few frames are still outstanding, and we would rather name them than pad the page. We are waiting on a clear photograph of the animal feed bharada, and on photographs that tie each processing service to the particular machine that performs it — a machine will not be captioned with a job until the business confirms which one does what.`,
+                mr: `वर ${totalPhotos} छायाचित्रे व ${totalVideos} व्हिडिओ प्रकाशित केले आहेत, सर्व आमचेच. काही छायाचित्रे अजून बाकी आहेत, आणि पान भरण्यापेक्षा ती नावाने सांगणे आम्हाला योग्य वाटते. पशुखाद्य भरड्याचे स्पष्ट छायाचित्र, आणि प्रत्येक प्रक्रिया सेवेची ती सेवा करणाऱ्या विशिष्ट यंत्राशी जोडणारी छायाचित्रे अजून हवी आहेत — कोणते यंत्र कोणते काम करते हे व्यवसायाने निश्चित करेपर्यंत यंत्रावर कामाचे नाव लावले जाणार नाही.`,
               },
               lang,
             )}

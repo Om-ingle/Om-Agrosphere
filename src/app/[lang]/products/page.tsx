@@ -21,13 +21,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title =
     lang === 'en'
-      ? 'Products — Corn Grit for Animal Feed & Spice Powders'
-      : 'उत्पादने — जनावरांच्या खाद्यासाठी मक्याचा भरडा व मसाला पूड';
+      ? 'Products — Tur, Moong, Urad & Chana Dal and Animal Feed Bharada'
+      : 'उत्पादने — तूर, मूग, उडीद व चणाडाळ आणि पशुखाद्य भरडा';
 
   const description =
     lang === 'en'
-      ? 'Corn grit (मक्याचा भरडा) for animal feed and spice powders ground at our own unit on the Dhule–Solapur Highway at Gangapur, Maharashtra. Send an enquiry for quantity and rate.'
-      : 'धुळे–सोलापूर महामार्गावर, गंगापूर, महाराष्ट्र येथील आमच्याच युनिटमध्ये तयार होणारा जनावरांच्या खाद्यासाठी मक्याचा भरडा व मसाला पूड. प्रमाण व दरासाठी चौकशी पाठवा.';
+      ? 'Tur dal, moong dal, urad dal and chana dal processed at our unit, and animal feed bharada prepared from maize, dal husk, chura, wheat and soybean, on the Dhule–Solapur Highway at Gangapur, Maharashtra.'
+      : 'धुळे–सोलापूर महामार्गावर, गंगापूर, महाराष्ट्र येथील आमच्याच युनिटमध्ये तयार होणारी तूरडाळ, मूगडाळ, उडीदडाळ व चणाडाळ, आणि मका, डाळींचा भुसा, चुरा, गहू व सोयाबीनपासून तयार होणारा पशुखाद्य भरडा.';
 
   return {
     title,
@@ -66,12 +66,12 @@ export default async function ProductsPage({ params }: PageProps) {
         lang={lang}
         eyebrow={{ en: 'Products', mr: 'उत्पादने' }}
         title={{
-          en: 'Two products we make at our own unit',
-          mr: 'आमच्याच युनिटमध्ये तयार होणारी दोन उत्पादने',
+          en: 'Five products from our own unit',
+          mr: 'आमच्याच युनिटमधील पाच उत्पादने',
         }}
         intro={{
-          en: 'Alongside processing other people’s material, we produce corn grit for animal feed and grind spice powders. Both come out of the same unit, from raw material we have handled ourselves.',
-          mr: 'इतरांच्या मालावर प्रक्रिया करण्यासोबतच, आम्ही जनावरांच्या खाद्यासाठी मक्याचा भरडा तयार करतो व मसाला पूड कुटतो. दोन्ही एकाच युनिटमधून, आम्ही स्वतः हाताळलेल्या कच्च्या मालापासून तयार होतात.',
+          en: 'We process and sell tur, moong, urad and chana dal, and prepare animal feed bharada. The dals come from pulses processed at our unit; the bharada is made from maize, dal husk, chura, wheat and soybean.',
+          mr: 'आम्ही तूर, मूग, उडीद व हरभरा यांची डाळ तयार करून विकतो आणि पशुखाद्य भरडा तयार करतो. डाळ आमच्याच युनिटमध्ये प्रक्रिया केलेल्या कडधान्यापासून तयार होते; भरडा मका, डाळींचा भुसा, चुरा, गहू व सोयाबीनपासून तयार होतो.',
         }}
         trail={trail}
       />
@@ -152,13 +152,13 @@ export default async function ProductsPage({ params }: PageProps) {
               ) : (
                 <div className="mt-8 rounded border border-dashed border-ink/25 bg-white/70 p-5">
                   <h3 className="font-heading text-base text-ink">
-                    {pick({ en: 'Grades and pack sizes', mr: 'प्रकार व पॅकिंगचे आकार' }, lang)}
+                    {pick({ en: 'Pack sizes', mr: 'पॅकिंगचे आकार' }, lang)}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-ink-soft">
                     {pick(
                       {
-                        en: 'Available grades and pack sizes are being confirmed by the business and will be published here. Until they are, tell us the quantity and the form you need and we will confirm what we can supply.',
-                        mr: 'उपलब्ध प्रकार व पॅकिंगचे आकार व्यवसायाकडून निश्चित होत आहेत आणि येथे प्रकाशित केले जातील. तोपर्यंत तुम्हाला हवे असलेले प्रमाण व स्वरूप सांगा, आम्ही काय पुरवू शकतो ते सांगू.',
+                        en: 'Pack sizes are being confirmed by the business and will be published here. Until they are, tell us the quantity you need and we will confirm what we can supply.',
+                        mr: 'पॅकिंगचे आकार व्यवसायाकडून निश्चित होत आहेत आणि येथे प्रकाशित केले जातील. तोपर्यंत तुम्हाला हवे असलेले प्रमाण सांगा, आम्ही काय पुरवू शकतो ते सांगू.',
                       },
                       lang,
                     )}
@@ -184,7 +184,7 @@ export default async function ProductsPage({ params }: PageProps) {
       ))}
 
       {/* Processed material handled for customers. Kept clearly separate from
-          the two products above — these are lots processed on request, not
+          the five products above — these are lots processed on request, not
           products we make and sell under our own name. */}
       <Section tone="dark" divider>
         <SectionHeading
@@ -194,8 +194,8 @@ export default async function ProductsPage({ params }: PageProps) {
             mr: 'युनिटमधून आणखी काय बाहेर पडते',
           }}
           intro={{
-            en: 'Material processed here on customers’ behalf, photographed at the unit. These are examples of the work, not products we sell under our own name — the two products above are the ones we make ourselves.',
-            mr: 'ग्राहकांच्या वतीने येथे प्रक्रिया केलेला माल, युनिटमध्ये छायाचित्रित केलेला. ही कामाची उदाहरणे आहेत, आमच्या नावाने विकली जाणारी उत्पादने नाहीत — आम्ही स्वतः तयार करतो ती वरील दोन उत्पादने आहेत.',
+            en: 'Material processed here on customers’ behalf, photographed at the unit. These are examples of the work, not products we sell under our own name — the five products above are the ones we make and sell ourselves.',
+            mr: 'ग्राहकांच्या वतीने येथे प्रक्रिया केलेला माल, युनिटमध्ये छायाचित्रित केलेला. ही कामाची उदाहरणे आहेत, आमच्या नावाने विकली जाणारी उत्पादने नाहीत — आम्ही स्वतः तयार करून विकतो ती वरील पाच उत्पादने आहेत.',
           }}
           tone="dark"
           lang={lang}
@@ -224,7 +224,7 @@ export default async function ProductsPage({ params }: PageProps) {
           <div className="lg:col-span-5">
             <SectionHeading
               eyebrow={{ en: 'How we supply', mr: 'पुरवठा कसा होतो' }}
-              title={{ en: 'Wholesale and retail', mr: 'घाऊक व किरकोळ' }}
+              title={{ en: 'Direct from the unit', mr: 'थेट युनिटमधून' }}
               lang={lang}
             />
           </div>
@@ -234,8 +234,8 @@ export default async function ProductsPage({ params }: PageProps) {
               <p>
                 {pick(
                   {
-                    en: 'Corn grit and spice powders are supplied two ways: in bulk to traders and wholesale or commercial buyers, and in retail packs. Tell us which of the two you need, along with the quantity, and we will quote for that.',
-                    mr: 'मक्याचा भरडा व मसाला पूड दोन प्रकारे पुरवली जाते: व्यापारी व घाऊक किंवा व्यावसायिक खरेदीदारांना मोठ्या प्रमाणात, आणि किरकोळ पॅकमध्ये. तुम्हाला यापैकी काय हवे आहे व किती प्रमाण, हे सांगा, आम्ही त्यानुसार दर सांगू.',
+                    en: 'Tur, moong, urad and chana dal and animal feed bharada are supplied from our unit. Availability and rate depend on what is in hand, so tell us the product and quantity you need and we will confirm what we can supply.',
+                    mr: 'तूरडाळ, मूगडाळ, उडीदडाळ, चणाडाळ व पशुखाद्य भरडा आमच्याच युनिटमधून पुरवले जातात. उपलब्धता व दर हातात असलेल्या मालावर अवलंबून असतात, म्हणून तुम्हाला हवे असलेले उत्पादन व प्रमाण सांगा, आम्ही काय पुरवू शकतो ते सांगू.',
                   },
                   lang,
                 )}
@@ -251,7 +251,7 @@ export default async function ProductsPage({ params }: PageProps) {
               </p>
               <div className="mt-2">
                 <ButtonInternal
-                  href={`${href(lang, 'quote')}?interest=${encodeURIComponent('Corn Grit')}`}
+                  href={`${href(lang, 'quote')}?interest=${encodeURIComponent('Tur Dal')}`}
                   variant="outline"
                 >
                   {pick(ui.getQuote, lang)}

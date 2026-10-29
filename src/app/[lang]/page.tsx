@@ -48,13 +48,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title =
     lang === 'en'
-      ? 'Grain Cleaning, Sorting, Grading & Dal Milling — Gangapur, Maharashtra'
-      : 'धान्य स्वच्छता, प्रतवारी, ग्रेडिंग व डाळ मिल — गंगापूर, महाराष्ट्र';
+      ? 'Grain Cleaning, Commodity Trading, Dal Processing & Animal Feed — Gangapur'
+      : 'धान्य स्वच्छता, शेतीमाल खरेदी-विक्री, डाळ प्रक्रिया व पशुखाद्य — गंगापूर, महाराष्ट्र';
 
   const description =
     lang === 'en'
-      ? 'Om Agrosphere provides grain cleaning, sorting, grading and dal milling for wheat, jowar, bajra, tur, chana, moong and urad on the Dhule–Solapur Highway at Gangapur, Maharashtra. Corn grit for animal feed and spice powders. Request a quote today.'
-      : 'ओम अॅग्रोस्फिअर धुळे–सोलापूर महामार्गावर, गंगापूर, महाराष्ट्र येथे गहू, ज्वारी, बाजरी, तूर, हरभरा, मूग व उडीद यांच्यासाठी धान्य स्वच्छता, प्रतवारी, ग्रेडिंग व डाळ मिल सेवा देते. जनावरांच्या खाद्यासाठी मक्याचा भरडा व मसाला पूड. आजच दराची चौकशी करा.';
+      ? 'Om Agrosphere cleans and trades soybean, maize, wheat, bajra and jowar, processes tur, moong, urad and chana into dal, and prepares animal feed bharada on the Dhule–Solapur Highway at Gangapur, Maharashtra. Request a quote today.'
+      : 'ओम अॅग्रोस्फिअर धुळे–सोलापूर महामार्गावर, गंगापूर, महाराष्ट्र येथे सोयाबीन, मका, गहू, बाजरी व ज्वारी स्वच्छ करते व त्यांची खरेदी-विक्री करते, तूर, मूग, उडीद व हरभरा यांची डाळ तयार करते आणि पशुखाद्य भरडा तयार करते. आजच दराची चौकशी करा.';
 
   return {
     title,
@@ -136,8 +136,8 @@ export default async function HomePage({ params }: PageProps) {
               <p className="mt-6 max-w-prose text-base leading-relaxed text-field-100/85 sm:text-[1.0625rem]">
                 {pick(
                   {
-                    en: 'We clean, sort, grade and mill grain for farmers, traders and buyers — and supply corn grit for animal feed and spice powders from our own unit.',
-                    mr: 'आम्ही शेतकरी, व्यापारी व खरेदीदारांसाठी धान्य स्वच्छ करतो, प्रतवारी व ग्रेडिंग करतो आणि दळतो — तसेच आमच्याच युनिटमधून जनावरांच्या खाद्यासाठी मक्याचा भरडा व मसाला पूड पुरवतो.',
+                    en: 'We clean and trade soybean, maize, wheat, bajra and jowar, process tur, moong, urad and chana into dal, and prepare animal feed bharada at our own unit.',
+                    mr: 'आम्ही सोयाबीन, मका, गहू, बाजरी व ज्वारी स्वच्छ करतो व त्यांची खरेदी-विक्री करतो, तूर, मूग, उडीद व हरभरा यांची डाळ तयार करतो आणि आमच्याच युनिटमध्ये पशुखाद्य भरडा तयार करतो.',
                   },
                   lang,
                 )}
@@ -261,8 +261,8 @@ export default async function HomePage({ params }: PageProps) {
               <p>
                 {pick(
                   {
-                    en: 'Om Agrosphere is an agricultural processing business at Diwashi on the Dhule–Solapur Highway, in Gangapur taluka, Maharashtra. We take harvested and traded agricultural produce and put it through cleaning, sorting, grading and milling, so it leaves in a more useful, more sellable condition than it arrived.',
-                    mr: 'ओम अॅग्रोस्फिअर हा धुळे–सोलापूर महामार्गावर, गंगापूर तालुक्यातील दिवाशी येथील कृषी प्रक्रिया व्यवसाय आहे. कापणी केलेला व खरेदी केलेला शेतमाल आम्ही स्वच्छता, प्रतवारी, ग्रेडिंग व दळण या प्रक्रियांतून घेतो, जेणेकरून तो आला त्यापेक्षा अधिक उपयुक्त व विक्रीयोग्य स्थितीत बाहेर पडतो.',
+                    en: 'Om Agrosphere is an agricultural processing and trading business at Diwashi on the Dhule–Solapur Highway, in Gangapur taluka, Maharashtra. We take harvested and traded produce and put it through grain cleaning, dal processing and animal feed preparation, and we buy and sell agricultural commodities ourselves — so it leaves in a more useful, more sellable condition than it arrived.',
+                    mr: 'ओम अॅग्रोस्फिअर हा धुळे–सोलापूर महामार्गावर, गंगापूर तालुक्यातील दिवाशी येथील कृषी प्रक्रिया व व्यापार व्यवसाय आहे. कापणी केलेला व खरेदी केलेला शेतमाल आम्ही धान्य स्वच्छता, डाळ प्रक्रिया व पशुखाद्य तयार करणे या प्रक्रियांतून घेतो, आणि शेतीमालाची खरेदी-विक्री स्वतः करतो — जेणेकरून तो आला त्यापेक्षा अधिक उपयुक्त व विक्रीयोग्य स्थितीत बाहेर पडतो.',
                   },
                   lang,
                 )}
@@ -270,8 +270,8 @@ export default async function HomePage({ params }: PageProps) {
               <p>
                 {pick(
                   {
-                    en: 'Our customers are the people this highway already carries: farmers bringing their own harvest, traders handling other people’s, wholesale buyers sourcing in bulk, and retail customers who want a specific product. We also supply corn grit for animal feed and spice powders ground at our own unit.',
-                    mr: 'हा महामार्ग ज्यांना घेऊन जातो तेच आमचे ग्राहक: स्वतःची कापणी आणणारे शेतकरी, दुसऱ्यांचा माल हाताळणारे व्यापारी, मोठ्या प्रमाणात माल घेणारे घाऊक खरेदीदार, आणि विशिष्ट उत्पादन हवे असलेले किरकोळ ग्राहक. त्याशिवाय आम्ही जनावरांच्या खाद्यासाठी मक्याचा भरडा आणि आमच्याच युनिटमध्ये कुटलेली मसाला पूड पुरवतो.',
+                    en: 'Our customers are the people this highway already carries: farmers bringing their own harvest, traders handling other people’s, wholesale buyers sourcing in bulk, and retail customers who want a specific product. We also buy and sell soybean, maize, wheat, bajra and jowar, and supply dal and animal feed bharada from our own unit.',
+                    mr: 'हा महामार्ग ज्यांना घेऊन जातो तेच आमचे ग्राहक: स्वतःची कापणी आणणारे शेतकरी, दुसऱ्यांचा माल हाताळणारे व्यापारी, मोठ्या प्रमाणात माल घेणारे घाऊक खरेदीदार, आणि विशिष्ट उत्पादन हवे असलेले किरकोळ ग्राहक. आम्ही सोयाबीन, मका, गहू, बाजरी व ज्वारी यांची खरेदी-विक्रीही करतो, आणि आमच्याच युनिटमधून डाळ व पशुखाद्य भरडा पुरवतो.',
                   },
                   lang,
                 )}
@@ -279,8 +279,8 @@ export default async function HomePage({ params }: PageProps) {
               <p>
                 {pick(
                   {
-                    en: 'If you have material to process, tell us the crop and roughly how much you are bringing. We will tell you honestly what we can take, when we can take it, and what it will cost.',
-                    mr: 'प्रक्रिया करायचा माल असल्यास, पीक व अंदाजे प्रमाण सांगा. किती माल घेऊ शकतो, केव्हा घेऊ शकतो आणि खर्च किती होईल — हे आम्ही प्रामाणिकपणे सांगू.',
+                    en: 'If you have material to process, or want to buy or sell a commodity, tell us what it is and roughly how much. We will tell you honestly what we can take, when we can take it, and what it will cost.',
+                    mr: 'प्रक्रिया करायचा माल असो वा शेतीमाल विकायचा किंवा विकत घ्यायचा असो, तो काय आहे व अंदाजे किती आहे ते सांगा. किती माल घेऊ शकतो, केव्हा घेऊ शकतो आणि खर्च किती होईल — हे आम्ही प्रामाणिकपणे सांगू.',
                   },
                   lang,
                 )}
@@ -312,13 +312,13 @@ export default async function HomePage({ params }: PageProps) {
           eyebrow={{ en: 'Services', mr: 'सेवा' }}
           title={ui.coreServices}
           intro={{
-            en: 'Five processing services. Most lots go through more than one of them before they are ready to leave.',
-            mr: 'पाच प्रक्रिया सेवा. बहुतेक माल येथून बाहेर पडण्यापूर्वी यापैकी एकापेक्षा जास्त प्रक्रियांतून जातो.',
+            en: 'Four services, covering what comes in and what leaves. Most lots touch more than one of them.',
+            mr: 'चार सेवा — आत येणारा माल व बाहेर जाणारा तयार माल या दोन्हींची. बहुतेक माल यापैकी एकापेक्षा जास्त सेवांमधून जातो.',
           }}
           lang={lang}
         />
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {services.map((service) => (
             <ServiceCard key={service.slug} service={service} lang={lang} />
           ))}
@@ -333,8 +333,8 @@ export default async function HomePage({ params }: PageProps) {
               eyebrow={{ en: 'Crops', mr: 'पिके' }}
               title={ui.supportedCrops}
               intro={{
-                en: 'These are the crops we handle. Crops outside this list are not something we can promise — ask us and we will say so plainly.',
-                mr: 'ही आम्ही हाताळत असलेली पिके आहेत. या यादीबाहेरील पिकांबाबत आम्ही वचन देऊ शकत नाही — विचारा, आम्ही स्पष्ट सांगू.',
+                en: 'These are the crops and pulses we work with. Anything outside this list is not something we can promise — ask us and we will say so plainly.',
+                mr: 'ही आम्ही हाताळत असलेली पिके व कडधान्य आहेत. या यादीबाहेरील गोष्टींबाबत आम्ही वचन देऊ शकत नाही — विचारा, आम्ही स्पष्ट सांगू.',
               }}
               lang={lang}
             />
@@ -352,8 +352,8 @@ export default async function HomePage({ params }: PageProps) {
           eyebrow={{ en: 'Products', mr: 'उत्पादने' }}
           title={ui.featuredProducts}
           intro={{
-            en: 'Besides processing other people’s material, we supply products from our own unit.',
-            mr: 'इतरांच्या मालावर प्रक्रिया करण्याशिवाय, आम्ही आमच्याच युनिटमधून उत्पादने पुरवतो.',
+            en: 'We sell dal and animal feed bharada from our own unit, and buy and sell agricultural commodities. Availability and rate are confirmed on enquiry.',
+            mr: 'आम्ही आमच्याच युनिटमधून डाळ व पशुखाद्य भरडा विकतो, आणि शेतीमालाची खरेदी-विक्री करतो. उपलब्धता व दर चौकशीवरून निश्चित होतात.',
           }}
           lang={lang}
         />
@@ -494,8 +494,8 @@ export default async function HomePage({ params }: PageProps) {
               <p>
                 {pick(
                   {
-                    en: 'Cleaning, sorting and grading separate that mixture into lots that can each be sold on their own terms. One part may fetch a better rate; another is right for feed or industrial use. The total from the same harvest is higher than if it had left whole.',
-                    mr: 'स्वच्छता, प्रतवारी व ग्रेडिंग यामुळे ते मिश्रण अशा भागांत विभागले जाते ज्यांची विक्री स्वतंत्रपणे होऊ शकते. एका भागाला चांगला भाव मिळू शकतो; दुसरा खाद्य किंवा उद्योगासाठी योग्य ठरतो. त्याच कापणीतून मिळणारी एकूण रक्कम, ती जशी होती तशी गेल्यापेक्षा जास्त असते.',
+                    en: 'Cleaning takes out what does not belong in the grain. Dal processing turns whole pulses into dal, and the husk and finer material that come off can go into animal feed bharada. Each of those steps changes what the crop is worth to the family that grew it.',
+                    mr: 'स्वच्छतेमध्ये धान्यात नसावे असे पदार्थ वेगळे होतात. डाळ प्रक्रियेत संपूर्ण कडधान्याची डाळ तयार होते, आणि त्यातून निघणारा भुसा व बारीक माल पशुखाद्य भरड्यात जाऊ शकतो. या प्रत्येक टप्प्यामुळे पिकाची किंमत पिकवणाऱ्या कुटुंबासाठी बदलते.',
                   },
                   lang,
                 )}

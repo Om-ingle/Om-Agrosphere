@@ -88,15 +88,15 @@ export function ProductCard({ product, lang }: { product: Product; lang: Lang })
 
         <div className="mt-auto pt-6">
           <ButtonInternal href={quoteHref} size="lg" className="w-full sm:w-auto">
-            {pick({ en: 'Enquire for bulk rates', mr: 'घाऊक दरासाठी चौकशी करा' }, lang)}
+            {pick({ en: 'Enquire about this product', mr: 'या उत्पादनाबद्दल चौकशी करा' }, lang)}
           </ButtonInternal>
 
           {product.specs.length === 0 && product.packaging[lang].length === 0 ? (
             <p className="mt-3 text-xs leading-relaxed text-ink-muted">
               {pick(
                 {
-                  en: 'Pack sizes and grades are still being confirmed. Ask us and we will tell you exactly what is available for your quantity.',
-                  mr: 'पॅकिंगचे आकार व प्रकार अजून निश्चित होत आहेत. चौकशी करा, तुमच्या प्रमाणासाठी नेमके काय उपलब्ध आहे ते आम्ही सांगू.',
+                  en: 'Pack sizes are still being confirmed. Ask us and we will tell you exactly what is available for your quantity.',
+                  mr: 'पॅकिंगचे आकार अजून निश्चित होत आहेत. चौकशी करा, तुमच्या प्रमाणासाठी नेमके काय उपलब्ध आहे ते आम्ही सांगू.',
                 },
                 lang,
               )}
